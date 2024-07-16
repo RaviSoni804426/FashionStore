@@ -4,38 +4,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
-    <style type="text/css">
-    body{
-        background-size: cover;
-    }
-    .shade{
-        background-color:rgba(0,0,0,0.3);
-        height:100vh;
-        width:100vw;
-       margin: -8px;
-    
-    }
-    .header{
-        color:white;
-        font-size: 30px;
-        display: flex;
-        justify-content: space-between;
-    }
+    <style>
+        body{
+            background-size: cover;
+        }
+        .shade{
+            background-color: rgba(0,0,0,0.1);
+            width: 100%;
+            height: 100vh;
+            margin-top: -10px;
+            margin-left: -10px;
+        }
+        header{
+            padding: 20px;
+            color: white;
+            font-size: 20px;
+            font-family: Arial;
+            display: flex;
+            justify-content: space-between;
+        }
+        .brand-title{
+            font-size: 35px;
+            color: red;
+            margin-left:50px;
+            font-weight: bold;
+        }
+
+        .btn-signin{
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            width: 100px;
+            display: inline-block;
+            text-align: center;
+        }
+        section{
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 500px;
+            text-align: center;
+            font-size: 15px;
+            font-family: Arial;
+            padding: 10px;
+        }
+        .title{
+            font-size: 55px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .subtitle-1{
+            font-size: 35px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+        .subtitle-2{
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .email{
+            background-color: gray;
+            padding: 15px;
+            width: 500px;
+            display: inline-block;
+            text-align: left;
+            font-size: 20px;
+            font-family: Arial;
+        }
+        .btn-start{
+            background-color: red;
+            padding: 15px;
+            width: 150px;
+            display: inline-block;
+            text-align: left;
+            font-size: 20px;
+            font-family: Arial;
+        }
     </style>
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
 </head>
+
 <body background="../public/banner.jpg">
     <div class="shade">
         <header>
             <div>
-                <div class="brand-name">NETFLIX</div>
+                <span class="brand-title">NETFLIX</span>
             </div>
-            <span class="bi bi-globe"></span>
-            <span>Language</span>
-            <span class="bi bi-chevron-bar-down"></span>
-            <span>"bi bi-signin"</span>
-            <div </div>
+            <div>
+                <span class="bi bi-globe"></span>
+                <span>Language</span>
+                <span class="bi bi-chevron-down"></span>
+                <span class="btn-signin">Signin</span>
+            </div>
         </header>
-        </div>
+        <section>
+            <div>
+                <div class="title">Unlimited movies, TV shows and more</div>  
+                <div class="subtitle-1">Watch anywhere. Cancel anytime.</div>
+                <div class="subtitle-2">
+                    Ready to watch? Enter your email to create or restart your membership.
+                </div>
+                <main>
+                    <span class="email">Email address</span>
+                    <span class="btn-start">Get Started&nbsp;&nbsp;&nbsp;<span class="bi bi-chevron-right"></span></span>
+                </main>
+            </div>
+        </section>
+        <footer>
+
+        </footer>
+    </div>
 </body>
 </html>
+
