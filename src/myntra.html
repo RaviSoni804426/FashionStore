@@ -3,158 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Header</title>
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <style type="text/css">
+    <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            box-shadow: 0px 3px 5px grey;
         }
-
-        header {
+        .header {
+            top: 0;
+            position: sticky;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px 20px;
             background-color: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #eee;
         }
-
-        .container {
-            display: flex;
-            gap: 20px;
-        }
-
-        .container span {
-            color: black;
-            font-weight: bold;
-            margin: 20px;
-        }
-
-        .search-bar {
+        .header-logo {
             display: flex;
             align-items: center;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            
+        }
+        .header-nav span{
+            font-size: 10px;
+            font-family: Arial, sans-serif;
+            vertical-align: super;
+
+
+        }
+        .header-nav div {
+           
+            font-weight: bold;
+            color: #333;
+            margin-left: 4px;
+            font-size: 20px;
+        }
+        .header-search {
+            background-color: rgb(0,0,0,0.1);
+            padding: 12px;
+        }
+        .header-search search{
+            margin-left: 15px;
+        }
+
+        
+        .header-search input {
+            width: 60%;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+        .header-icons{
+            display: flex;
+        }
+        .header-icons div span{
+            display: block;
+            padding-right: 20px;
+        }
+        header div sup{
+            color: red;
+            font-size: 11px;
+        }
+        .bi-person,.bi-heart{
+            margin-left: 14px;
+        }
+        .bi-bag{
+            margin-left: 5px;
+        }
+
+.footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ddd;
+        }
+         .column {
+            flex: 1;
+            margin: 0 10px;
+        }
+        .footer .column span {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        .footer .column h4 {
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .footer .apps {
+            display: flex;
             gap: 10px;
         }
-
-        .search-bar input {
-            padding: 5px;
-            border: 1px solid black;
-            border-radius: 10px;
-            font-size: 14px;
-            height: 30px;
-            width: 300px;
-        }
-
-        .user-options {
+        .footer .social-icons {
             display: flex;
-            gap: 20px;
+            gap: 10px;
+            margin-top: 10px;
         }
-
-        .user-options span {
+        .footer .guarantees {
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .footer .guarantees span {
+            display: grid;
             align-items: center;
-            gap: 5px;
+        }
+        .footer .guarantees img {
+            margin-right: 10px;
         }
 
-        footer {
-            display: flex;
-            justify-content: space-around;
-            background-color: #f8f8f8;
-            padding: 20px 0;
+        section{
+            height: 400px;
         }
-
-        .footer-section {
-            width: 20%;
-        }
-
-        .footer-section h3 {
-            font-size: 16px;
-            margin-bottom: 10px;
-            color: gray;
-        }
-
-        .footer-section span {
-            display: block;
-            margin-bottom: 5px;
-            color: black;
-            text-decoration: none;
-        }
-
-        .social-media span {
-            margin: 0 10px;
-            font-size: 20px;
-            color: black;
-        }
+        
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <span>Men</span>
-            <span>Women</span>
-            <span>Kids</span>
-            <span>Home & Living</span>
-            <span>Beauty</span>
-            <span>Studio</span>
+    <div class="header">
+        <div class="header-logo">
+          
         </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products, brands and more">
+        <div class="header-nav">
+            <div>MEN</div>
+            <div>WOMEN</div>
+            <div>KIDS</div>
+            <div>HOME & LIVING</div>
+            <div>BEAUTY</div>
+            <div>STUDIO <span style="color: red;"><sup>NEW</span></div>
         </div>
-        <div class="user-options">
-            <span><i class="bi bi-person"></i>Profile</span>
-            <span><i class="bi bi-heart"></i>Wishlist</span>
-            <span><i class="bi bi-bag"></i>Bag</span>
+        <div class="header-search">
+            <span class="bi bi-search"></span>
+            <span class="search">Search for products, brands and more</span>
         </div>
-    </header>
-    <footer>
-        <div class="footer-section">
-            <h3>ONLINE SHOPPING</h3>
-            <span>Men</span>
-            <span>Women</span>
-            <span>Kids</span>
-            <span>Home & Living</span>
-            <span>Beauty</span>
-            <span>Gift Cards</span>
-            <span>Myntra Insider</span>
-        </div>
-        <div class="footer-section">
-            <h3>USEFUL LINKS</h3>
-            <span>Blog</span>
-            <span>Careers</span>
-            <span>Site Map</span>
-            <span>Corporate Information</span>
-            <span>Whitehat</span>
-            <span>Cleartrip</span>
-        </div>
-        <div class="footer-section">
-            <h3>CUSTOMER POLICIES</h3>
-            <span>Contact Us</span>
-            <span>FAQ</span>
-            <span>T&C</span>
-            <span>Terms Of Use</span>
-            <span>Track Orders</span>
-            <span>Shipping</span>
-            <span>Cancellation</span>
-            <span>Returns</span>
-            <span>Privacy Policy</span>
-            <span>Grievance Officer</span>
-        </div>
-        <div class="footer-section">
-            <h3>EXPERIENCE MYNTRA APP ON MOBILE</h3>
-            <img src="https://via.placeholder.com/150" alt="Google Play" width="150">
-            <img src="https://via.placeholder.com/150" alt="App Store" width="150">
-            <h3>KEEP IN TOUCH</h3>
-             <div class="social-media">
-                <aside>
-                <span class="bi bi-facebook"></span>
-                <span class="bi bi-twitter"></span>
-                <span class="bi bi-youtube"></span>
-                <span class="bi bi-instagram"></span>
-                </aside>
+        
+        <div class="header-icons">
+            <div>
+                <span class="bi bi-person"></span>
+                <span>Profile</span>
+            </div>
+            <div>
+                <span class="bi bi-heart"></span>
+                <span>Wishlist</span>
+            </div>
+            <div>
+                <span class="bi-bag"></span>
+                <span>Bag</span>
             </div>
         </div>
+</div>
+    <section>
+        
+    </section>
+    <footer>
+        <div class="footer">
+
+        
+<div class="column">
+                <h5>ONLINE SHOPPING</h4>
+                <span>Men</span>
+                <span>Women</span>
+                <span>Kids</span>
+                <span>Home & Living</span>
+                <span>Beauty</span>
+                <span>Gift Cards</span>
+                <span>Myntra Insider</span>
+            </div>
+
+<div class="column">
+                <h5>USEFUL LINKS</h4>
+                <span>Blog</span>
+                <span>Careers</span>
+                <span>Site Map</span>
+                <span>Corporate Information</span>
+                <span>Whitehat</span>
+                <span>Cleartrip</span>
+            </div>
+<div class="column">
+                <h5>CUSTOMER POLICIES</h4>
+                <span>Contact Us</span>
+                <span>FAQ</span>
+                <span>T&C</span>
+                <span>Terms Of Use</span>
+                <span>Track Orders</span>
+                <span>Shipping</span>
+                <span>Cancellation</span>
+                <span>Returns</span>
+                <span>Privacy policy</span>
+                <span>Grievance Officer</span>
+</div>
+<div class="column">
+                <h5>EXPERIENCE MYNTRA APP ON MOBILE</h4>
+                
+                <h5>KEEP IN TOUCH</h4>
+                <div class="social-icons">
+                    <span class="bi bi-facebook"></span>
+                    <span class="bi bi-twitter"></span>
+                    <span class="bi bi-youtube"></span>
+                    <span class="bi bi-instagram"></span>
+                </div>
+            </div>
+            <div class="column guarantees">
+                <span><b>100% ORIGINAL</b> guarantee for all products at myntra.com</span>
+                <br>
+                <span><b>Return within 14 days</b> of receiving your order</span>
+            </div>
+        </div>
+        
+
+        
     </footer>
+        
 </body>
 </html>
