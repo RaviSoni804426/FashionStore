@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Youtube</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css"/>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+
+    <style>
+ 
+      /* @font-face {
+        font-family: yt-logo;
+        src: url("./../../public/Font/Trade_Gothic_Font/Trade\ Gothic\ LT\ Bold\ Condensed\ No.\ 20.ttf");
+      } */
+      .search-bar {
+        border: 1px solid gray;
+        width: 40vw;
+        border-radius: 20px;
+        padding: 5px;
+        text-align: center;
+        display: flex;
+        font-size: 20px;
+        justify-content: space-between;
+      }
+
+      .search-bar .bi-search {
+        margin-right: 0.9vw;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        /* border: 1px solid black; */
+        /* border-radius: 0px 20px 20px; */
+      }
+      .search-row {
+        display: flex;
+        padding: 10px;
+      }
+      .search {
+        margin-left: 10px;
+        margin-top: 5px;
+      }
+
+      .bi-mic-fill {
+        margin-left: 1vw;
+        border: none;
+        margin-bottom: 1px;
+        color: white;
+        font-size: 20px;
+        background-color: gray;
+        border-radius: 50%;
+        padding: 10px;
+      }
+      body {
+        margin: 0px;
+      }
+      header {
+        display: flex;
+        background-color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        justify-content: space-between;
+      }
+      .profile {
+        background-color: green;
+        border-radius: 50%;
+        display: inline-block;
+        width: 20px;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .user-area span {
+        margin-right: 20px;
+      }
+
+      .user-area,
+      .menu-bar {
+        padding: 10px;
+        font-size: 20px;
+      }
+
+      .menu-bar {
+        display: flex;
+      }
+
+      .menu-bar .bi-youtube {
+        margin-left: 20px;
+        color: red;
+        font-size: 30px;
+        padding: 5px;
+      }
+
+      .bi-list {
+        font-size: 30px;
+        padding: 5px;
+      }
+
+      .logo {
+        margin-left: 2px;
+        padding: 5px;
+        display: flex;
+        font-family: yt-logo;
+        font-size: 23px;
+      }
+
+      sup {
+        font-size: 13px;
+        margin-left: -4px;
+        font-weight: normal;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Section part */
+
+      section {
+        display: grid;
+        grid-template-columns: 2fr 10fr;
+      }
+
+      section nav ul {
+        width: 165px;
+      }
+      .link-new-window a {
+        color: black;
+      }
+      nav ul {
+        margin-bottom: 20px;
+        border-bottom: 1px solid gray;
+        margin-left: 12px;
+      }
+
+      li {
+        list-style: none;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        font-style: Sans-serif;
+        margin-left: -20px;
+        margin-bottom: 22px;
+      }
+
+      li span {
+        margin-right: 15px;
+      }
+
+      main img {
+        border-radius: 20px;
+        margin-left: 5vw;
+      }
+
+      
+      .nav-head {
+        margin-left: 22px;
+        margin-top: 15px;
+      }
+
+      article {
+        margin-top: -30px;
+      }
+
+      article img {
+        border-radius: 50%;
+        float: left;
+        margin-right: 28px;
+      }
+
+      .subscribe-btn {
+        text-align: center;
+        display: flex;
+        padding: 10px;
+        border: none;
+        font-weight: bold;
+        color: white;
+        background-color: gray;
+        width: 8vw;
+        border-radius: 30px;
+        justify-content: space-around;
+        margin-top: 10px;
+      }
+
+      aside div {
+        margin-bottom: 9px;
+      }
+
+      aside h1 {
+        font-size: 36px;
+        margin-bottom: 8px;
+      }
+      aside a {
+        text-decoration: none;
+        color: #3ea6ff;
+      }
+
+      .channel-nav {
+        display: flex;
+        position: static;
+        top: 0;
+        z-index: 1000;
+        gap: 15px;
+        margin-top: 25px;
+        border-bottom: 1px solid gray;
+      }
+      .channel-nav span {
+        padding: 8px;
+      }
+
+      .channel-nav .span1 {
+        margin-left: 85px;
+        font-weight: bold;
+        border-bottom: 3px solid darkgray;
+      }
+
+      section img{
+        margin-left: 85px;
+      }
+
+      .main-video {
+        margin-left: 85px;
+        margin-right: 115px;
+      }
+
+      .main-video iframe {
+        border-radius: 10px;
+      }
+      .for-you {
+        display: flex;
+        justify-content: space-between;
+        /* gap: 3px; */
+        border-bottom: 1px solid gray;
+      }
+
+      .for-you div {
+        margin-bottom: 13px;
+      }
+      .video-title {
+        display: flex;
+        margin-top: 5px;
+        justify-content: space-between;
+      }
+
+      .video-title p {
+        margin: 0px;
+        /* text-wrap:wrap; */
+        width: 320px;
+        
+      }
+      .reach-detail {
+        margin-top: 10px;
+        color: #AAAAAA;
+      }
+
+      .second-block-heading h3 {
+        padding: 0px;
+        margin: 0px;
+        margin-right: 16px;
+      }
+      .second-block-heading {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        margin-bottom: 0px;
+      }
+
+      .bi-play-fill {
+        font-size: 22px;
+      }
+
+      .second-block-heading div {
+        display: flex;
+        align-items: center;
+        padding: 12px;
+        width: 80px;
+      }
+      
+      .second-block-heading div:hover {
+        background-color: gray;
+        border-radius: 30px;
+      }
+
+      .all-about-pwioi p {
+        margin: 0px;
+        width: 650px;
+      }
+
+        .videos {
+        display: flex;
+        /* gap: 2px; */
+        justify-content: space-between;
+        margin-top: 19px;
+        margin-bottom: 23px;
+      }
+
+      .all-about-pwioi {
+        border-bottom: 1px solid gray;
+      }
+      .videos .video-title p {
+        width: 200px;
+        text-overflow: ellipsis;
+      }
+
+      section nav ul li img {
+        margin-left: 0px;
+        margin-right: 15px;
+        border-radius: 50%;
+      }
+
+      .yt-logos span{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="menu-bar">
+        <span class="bi bi-list"></span>
+        <span class="bi bi-youtube"></span>
+        <span class="logo">YouTube</span><sup>IN</sup>
+      </div>
+
+      <div class="search-row">
+        <div class="search-bar">
+          <span class="search">Search</span>
+          <span class="bi bi-search"></span>
+        </div>
+        <div class="bi bi-mic-fill"></div>
+      </div>
+
+      <div class="user-area">
+        <span class="bi bi-camera-video"></span>
+        <span class="bi bi-bell"></span>
+        <span class="profile"> R </span>
+      </div>
+    </header>
+
+    <section>
+      <nav>
+        <ul>
+          <li><span class="bi bi-house-door"></span>Home</li>
+          <li><span class="bi bi-play-circle"></span>Shorts</li>
+          <li><span class="bi bi-collection-play"></span>Subscriptions</li>
+        </ul>
+
+        <div class="nav-head">
+          <span>You</span>
+          <span class="bi bi-chevron-right"></span>
+        </div>
+
+        <ul>
+          <li><span class="bi bi-person-square"></span>Your Channel</li>
+          <li><span class="bi bi-clock-history"></span>History</li>
+          <li><span class="bi bi-music-note-list"></span>Playlists</li>
+          <li><span class="bi bi-play-btn"></span>Your Videos</li>
+          <li><span class="bi bi-lightbulb"></span>Your Courses</li>
+          <li><span class="bi bi-clock"></span>Watch Later</li>
+          <li><span class="bi bi-hand-thumbs-up"></span>Liked Videos</li>
+        </ul>
+
+        <div class="nav-head">
+          <span>Subscriptions</span>
+        </div>
+        
+        <ul>
+          <li><img src="./../../public/Image/alanWalkerLogo.jpg" alt="" width="23" height="23">Alan Walker</li>
+          <li><img src="./../../public/Image/tuflogo.jpg" alt="" width="23" height="23">take U forward</li>
+          <li><img src="./../../public/Image/maskedManlogo.jpg" alt="" width="23" height="23">The Masked Man</li>
+          <li><img src="./../../public/Image/aryanclogo.jpg" alt="" width="23" height="23">aryanc403</li>
+          <li><img src="./../../public/Image/venomTechLogo.jpg" alt="" width="23" height="23">Venom's Tech</li>
+          <li><img src="./../../public/Image/forrestKnightLogo.jpg" alt="" width="23" height="23">Forrest Knight</li>
+          <li><img src="./../../public/Image/samdishLogo.jpg" alt="" width="23" height="23">UNFILTERED by...</li>
+          <li><span class="bi bi-chevron-down"></span>&nbsp;Show more</li>
+        </ul>
+
+        <ul>
+          <li><span class="bi bi-fire"></span>Trading</li>
+          <li><span class="bi bi-bag"></span>Shopping</li>
+          <li><span class="bi bi-music-note"></span>Music</li>
+          <li><span class="bi bi-controller"></span>Gaming</li>
+          <li><span class="bi bi-newspaper"></span>News</li>
+          <li><span class="bi bi-trophy"></span>Sport</li>
+          <li><span class="bi bi-lightbulb"></span>Courses</li>
+          <li><span class="bi bi-duffle"></span>Fashion & beauty</li>
+          <li><span class="bi bi-broadcast-pin"></span>Podcasts</li>
+        </ul>
+        
+        <div class="nav-head">
+          <span>More from YouTube</span>
+        </div>
+
+          <ul class="yt-logos">
+            <li><span class="bi bi-youtube"></span>YouTube Premium</li>
+            <li><span class="fa fa-youtube-square"></span>YouTube Studio</li>
+            <li><span class="fa fa-music"></span>YouTube Music</li>
+            <li><span class="fa fa-youtube"></span>YouTube Kids</li>
+          </ul>
+
+      </nav>
+
+      <main>
+        <img
+          src="./../../public/Image/ytbanner.jpg"
+          width="auto"
+          height="172px"/>
+
+        <article>
+          <img
+            src="./../../public/Image/pwioi-channel-img.jpg"
+            alt=""
+            align="left"
+          />
+
+          <aside>
+            <h1>PW Institute of Innovation</h1>
+
+            <div>@PW-IOI • 7.23K subscribers • 157 videos</div>
+
+            <div class="link-new-window">
+              <a
+                href="javascript:window.open('./new-window.html', 'About', 'width=700px height=700px')"
+                >Shaping Futures, Empowering Innovators! 🚀<b>...more</b>
+              </a>
+            </div>
+
+            <a
+              href="https://pwioi.com/?utm_source=Youtube&utm_medium=Social&utm_campaign=Organic"
+              >https://pwioi.com/?utm_source=Youtube&utm_medium=Social&utm_campaign=Org...</a
+            ><b
+              ><span class="link-new-window"
+                >&nbsp;
+                <a
+                  href="javascript:window.open('./new-window.html', 'About', 'width=700px height=700px')"
+                  >and 8 more links</a
+                ></span
+              ></b
+            >
+
+            <div class="subscribe-btn">
+              <span class="bi bi-bell"></span>&nbsp;
+              <span>Subscribed</span>
+              &nbsp;<span class="bi bi-chevron-down"></span>
+            </div>
+          </aside>
+        </article>
+
+        <nav class="channel-nav">
+          <span class="span1">Home</span>
+          <span>Videos</span>
+          <span>Shorts</span>
+          <span>Playlists</span>
+          <span>Community</span>
+          <span class="bi bi-search"></span>
+        </nav>
+
+        <div class="main-video">
+            <h3>For You</h3>
+
+            <div class="for-you">
+              <div>
+                <iframe height="198" width="354" src="https://www.youtube.com/embed/UnCrj9xJzAU?si=K0WkHW3gVGEXiVnN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>What is PW IOI ?</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  22K views • 3 months ago
+                </div>
+              </div>
+  
+              <div>
+                <iframe width="354" height="198" src="https://www.youtube.com/embed/scX-jneH0hU?si=jYLMYm7t4cecAuOu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>PW Teachers Motivating PW IOI Students | Path to Success 🤩✌🏻</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  17K views • 4 months ago
+                </div>
+              </div>
+  
+              <div>
+                <iframe width="354" height="198" src="https://www.youtube.com/embed/PQETL7t6Nlk?si=lMaBWbzQORFP9Wo2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>How to get into PW IOI? | Complete admission process</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  16K views • 2 months ago
+                </div>
+              </div>
+
+              
+            </div>
+
+            <div class="second-block-heading">
+              <h3>All About PW IOI</h3>
+
+              <div>
+                <span class="bi bi-play-fill"></span>&nbsp;
+                <span>Play All</span>
+              </div>
+            </div>
+            <div class="all-about-pwioi">
+              <p>
+                Welcome to PW IOI! Explore our playlist for talks, seminars, and workshops led by experts. Ignite your passion for innovations in Technology and Management, enhance skills, and embrace...
+              </p>
+
+              <div class="videos">
+
+                <div>
+                  
+                  <iframe width="210" height="118" src="https://www.youtube.com/embed/MVPYoRTV438?si=w9kL15UR8KBLP8gT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                  <div class="video-title">
+                    <p>PW IOI AD WARS Challenge | The Task Announcement of... </p>
+                    <span class="bi bi-three-dots-vertical"></span>
+                  </div>
+  
+                  <div class="reach-detail">
+                    16K views • 2 months ago
+                  </div>
+                </div>
+  
+                <div>
+                  <iframe width="210" height="118" src="https://www.youtube.com/embed/D9CTsTSKx5g?si=TyeeJC3yINDB09ht" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <div class="video-title">
+                    <p>The AD WARS Campaign by PW IOI 🔥🔥#Teaser</p>
+                    <span class="bi bi-three-dots-vertical"></span>
+                  </div>
+  
+                  <div class="reach-detail">
+                    16K views • 2 months ago
+                  </div>
+                </div>
+  
+                <div>
+                  <iframe width="210" height="118" src="https://www.youtube.com/embed/pM3370OZ7HE?si=Kb9-pLCVRtUcmkds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                  <div class="video-title">
+                    <p>The Roadmap to Build the Unicorn Start-up by Prof...</p>
+                    <span class="bi bi-three-dots-vertical"></span>
+                  </div>
+  
+                  <div class="reach-detail">
+                    16K views • 2 months ago
+                  </div>
+                </div>
+  
+                <div>
+                  <iframe width="210" height="118" src="https://www.youtube.com/embed/scX-jneH0hU?si=NUSyeEZaFpQ-3rkF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                  <div class="video-title">
+                    <p>How to get into PW IOI? | Complete admission process</p>
+                    <span class="bi bi-three-dots-vertical"></span>
+                  </div>
+  
+                  <div class="reach-detail">
+                    16K views • 2 months ago
+                  </div>
+                </div>
+  
+                <div>
+                  <iframe width="210" height="118" src="https://www.youtube.com/embed/VcDavaC5Swk?si=WSEWpLAaMUjlSF2v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                  <div class="video-title">
+                    <p>How PW IOI's School of Management Offerings are...</p>
+                    <span class="bi bi-three-dots-vertical"></span>
+                  </div>
+  
+                  <div class="reach-detail">
+                    16K views • 2 months ago
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="second-block-heading">
+              <h3>Schoool Of Management</h3>
+
+              <div>
+                <span class="bi bi-play-fill"></span>&nbsp;
+                <span>Play All</span>
+              </div>
+            </div>
+
+
+            <div class="videos">
+              <div>
+                <iframe width="210" height="118" src="https://www.youtube.com/embed/cX9YVRmkpRE?si=eHP_9RjPp7eLNM-8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>What makes PW IOI School of Management special?</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  16K views • 2 months ago
+                </div>
+              </div>
+
+              <div>
+                <iframe width="210" height="118" src="https://www.youtube.com/embed/Y7rKWmD1gNU?si=trBXZNzpuBe2BNEf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>Why join PW IOI School of Management?</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  16K views • 2 months ago
+                </div>
+              </div>
+              <div>
+                <iframe width="210" height="118" src="https://www.youtube.com/embed/OGZ2gCZ00Kw?si=g1GYEmPEeIFqdc9l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>Curriculum for PW IOI School of Management</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  16K views • 2 months ago
+                </div>
+              </div>
+              <div>
+                <iframe width="210" height="118" src="https://www.youtube.com/embed/aDfBV0oTfbE?si=Dnwa_0hieQN5pEqT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>Why India needs Entrepreneurial Revolution?...</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  16K views • 2 months ago
+                </div>
+              </div>
+              <div>
+                <iframe width="210" height="118" src="https://www.youtube.com/embed/lgQRVh4FFbs?si=bOAg4pJRwp6tarDF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+                <div class="video-title">
+                  <p>Transforming Tech & Entrepreneurship: Inside PW...</p>
+                  <span class="bi bi-three-dots-vertical"></span>
+                </div>
+
+                <div class="reach-detail">
+                  16K views • 2 months ago
+                </div>
+              </div>
+            </div>
+        </div>
+
+
+      </main>
+    </section>
+  </body>
+</html>
