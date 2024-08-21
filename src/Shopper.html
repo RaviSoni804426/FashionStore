@@ -43,7 +43,17 @@
         }
 
         section{
-            height: 300px;
+            height: 600px;
+            margin-top: 50px;
+        }
+        .card-footer button{
+            background-color: gray;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 100px;
         }
 
 
@@ -74,6 +84,43 @@
         aside span{
             margin-right: 5px;
             font-size: 15px;
+        }
+        main{
+            display: grid;
+            grid-template-columns: 4fr 4fr 4fr;
+            height: 350px;
+        }
+        .womenfashion{
+            background-image:url(../public/images/women-card2.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            font-size: 35px;
+            cursor: pointer;
+    
+            
+        }
+        .menfashion{
+            background-image:url(../public/images/men-card.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        .kidfashion{
+            background-image:url(../public/images/kid-card.jpg);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            font-size: 35px;
+            cursor: pointer;
         }
 
     </style>
@@ -107,7 +154,32 @@
        <span>HAPPY HOLIDAY DEALS ON EVERYTHING</span>
        <span class="bi bi-lightning-fill"></span>
     </article>
-    <section> </section>
+    <main>
+    
+        <div class="womenfashion">
+            <div class="card">
+            <div class="card-header">Women</div>
+                <div class="card-footer">
+                <button>Shop Women<span class="bi bi-arrow-right"></span></button>
+           </div>
+        </div>
+    </div>
+        <div class="menfashion">
+            <div class="card">
+                <div class="card-header">Men</div>
+                    <div class="card-footer">
+                    <button>Shop Men<span class="bi bi-arrow-right"></span></button>
+               </div></div>
+        </div>
+        <div class="kidfashion">
+            <div class="card">
+                <div class="card-header">Men</div>
+                    <div class="card-footer">
+                    <button>Shop Men<span class="bi bi-arrow-right"></span></button>
+               </div></div>
+        </div>
+       
+    </main>
     <footer>
 
         <div>
