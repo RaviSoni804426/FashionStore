@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style type="text/css">
+        input:required+span{
+            display: inline;
+            color:red;}
+        input:optional+span{
+            display: none;
+        }
+        input:valid+span{
+            display: none;
+        }
+        input:valid~div{
+            display: none;
+
+        }
+        input:invalid~div{
+            display:block;
+
+            
+        }
+
+    </style>
+</head>
+<body>
+    <form>
+        <dl>Username</dl>
+            <dd>
+                <input type="text" name="txtPsd"><span>*</span>
+            </dd>
+            <dl>Password</dl>
+            <dd>
+                <input type="text" name="txtPsd" required><span>*</span>
+                <div>Password is required</div>
+            </dd>
+            <dl>Age</dl>
+            <dd>
+                <input type="text" name="txtAfe"><span>*</span>
+            </dd>
+    
+    
+    
+    </form>
+</body>
+</html>
