@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
-    <style type="text/css">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-grid.css">
+    <style>
+        body{
+            height:100vh;
+        }
         input:required+span{
             display: inline;
             color:red;}
@@ -31,7 +35,8 @@
     <form>
         <dl>Username</dl>
             <dd>
-                <input type="text" name="txtPsd"><span>*</span>
+                <input type="text" name="txtUser" required><span>*</span>
+                <div>Username is required</div>
             </dd>
             <dl>Password</dl>
             <dd>
