@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-grid.css">
     <style>
-        body{
+        /* body{
             height:100vh;
         }
         input:required+span{
@@ -28,11 +28,29 @@
 
             
         }
+        .terms:checked+span{
+            display: none;
+            
+        } */
+
+       input:focus+div{
+        display: contents;
+        color:gold
+
+       } 
+       input+div{
+        display: none;
+       }
+       input::placeholder{
+        color:blue;
+        font-size: 16px;
+       }
+        
 
     </style>
 </head>
 <body>
-    <form>
+    <!-- <form>
         <dl>Username</dl>
             <dd>
                 <input type="text" name="txtUser" required><span>*</span>
@@ -45,11 +63,25 @@
             </dd>
             <dl>Age</dl>
             <dd>
-                <input type="text" name="txtAfe"><span>*</span>
+                <input type="text" name="txtAfe"><span>*</span><br><br>
             </dd>
-    
-    
-    
-    </form>
+            <dd>
+        <dd>Terms and Services</dd><br>
+            <div><textarea>Terms And Conditions </textarea><br></div></dd>
+    <dd>
+    <input type="checkbox" class="terms"<span>I Accept</span><br><br>
+    <button>Submit</button>
+    </dd> -->
+
+    <form class="container-fluid"></form>
+    <dl class="mt-3 p-3">
+        <dt>Username</dt>
+        <dd>
+            <input type="text" name="txtUser" placeholder="Enter Username">
+            <div>
+           <span class="bi bi-info-circle"></span>Username is Upperclass
+            </div>
+        </dd>
+    </dl>
 </body>
 </html>
