@@ -7,13 +7,16 @@
     <style type="text/css">
         ol{
             list-style: none;
+            display:flex;
         }
-        ol li:nth-child(even){
-            color:palevioletred;
-            font-size: medium;
+        li::after{
+            content:">>"
         }
-        ol li:nth-child(odd){
-            color:yellow;
+        li:last-child::after{
+            content:" ";
+        }
+        li:last-child{
+            color:brown;
         }
     </style>
 </head>
@@ -27,5 +30,4 @@
         <li>node.js</li>
 
     </ol>
-</body>
 </html>
