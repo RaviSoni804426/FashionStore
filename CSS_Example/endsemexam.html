@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ravi</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<style type="text/css">
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:black;
+    color:white;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    padding: 10px 20px;}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color:white;
+
+}
+
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hero {
+    background-image: url('../public/images/slider.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.hero .button {
+    padding: 10px 20px;
+    background-color: #ff5e00;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.surfboards {
+    padding: 40px 20px;
+    text-align: center;
+}
+.board-container{
+    display:grid;
+    grid-template-columns: 3fr 3fr 3fr 3fr ;
+
+}
+.learn{
+    display: flex;
+}
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p.description {
+    text-align: center;
+    color:black;
+    margin-bottom: 30px;
+}
+
+.customer-reviews {
+    background-color:lightpink;
+    padding: 50px 0;
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.review {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.author {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f66;
+}
+
+
+.newsletter {
+    background-color: #ff6a00;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.newsletter h2 {
+    color: white;
+}
+
+.signup-form input[type="email"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 4px;
+    border: none;
+    margin-right: 10px;
+}
+
+.signup-form button {
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background-color: #e03c00;}
+
+</style>
+
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="info">
+            <span>+48 370 102 123</span>
+            <span>contact@ssurfers.com</span></div>
+            <div class="social">
+            <span class="bi bi-facebook"></span>
+            <span class="bi bi-youtube"></span>
+            <span class="bi bi-instagram"></span>
+            <span class="bi bi-twitter"></span>
+            <span class="bi bi-twitter-x"></span>
+            <span class="bi bi-linkedin"></span></div>
+        </div>
+        <nav>
+            <div class="logo">SSURFERS</div>
+            <div>
+                <span class="nav-link">Home</span>
+                <span class="nav-link">Products</span>
+                <span class="nav-link">Blog</span>
+                <span class="nav-link">About Us</span>
+                <span class="nav-link">Contact</span>
+                <span class="bi bi-cart"></span>
+
+            </div>
+        </div>
+</header>
+    <section class="hero">
+        <div class="hero-content">
+            
+            <h1>Choose a board for yourself</h1>
+            <p>Discover our collection of high-quality surfboards, designed for all types of waves and riders. Get ready for your next surf adventure!</p>
+            <a href="#" class="button">Check our boards</a>
+        </div>
+    </section>
+
+    <section class="surfboards">
+        <h2>Surfboards</h2>
+        <div class="board-container">
+        <span>
+                <img src="../public/images/board1.png" alt="Product 8">
+                <p>Product 8</p>
+                <p>450.00 USD</p>
+                <a href="#">See more</a></span>
+        <span>
+                <img src="../public/images/board2.png" alt="Product 7">
+                <p>Product 7</p>
+                <p>340.00 USD</p>
+                <a href="#">See more</a></span>
+       <span>
+                <img src="../public/images/board3.png" alt="Product 6">
+                <p>Product 6</p>
+                <p>425.00 USD</p>
+                <a href="#">See more</a></span>
+        <span>
+                <img src="../public/images/board4.png" alt="Product 5">
+                <p>Product 5</p>
+                <p>370.00 USD</p>
+                <a href="#">See more</a></span>
+            
+        </div>
+    </section>
+
+    <section class="learn">
+        <img src="../public/images/slider.png" alt="Surfboards on the beach">
+        <div class="learn-content">
+            <h2>Learn more about surfing </h2>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, at rerum. Obcaecati, suscipit? Dignissimos esse assumenda cum quibusdam a praesentium id. Quis, et voluptas. Ipsum, iure. Dicta facere ducimus facilis delectus exercitationem eius dignissimos esse. At et, facere quod molestiae fuga quibusdam odio tenetur maxime, expedita dolorem eveniet porro accusantium culpa enim fugit. Commodi numquam quia quidem ut iste perferendis impedit, atque excepturi assumenda aliquam itaque et ex voluptatem doloremque incidunt sunt, reiciendis expedita laudantium corporis eaque natus ea quibusdam!</p>
+         <button>Read More</button>
+         </div>
+         </section>
+         <section class="customer-reviews">
+            <h2 class="review">Customer reviews</h2>
+            <p class="description">
+                Nunc condimentum feugiat tellus sit amet lacinia. Pellentesque 
+                lobortis metus sed eros molestie, sit amet aliquet sapien accumsan. 
+                Mauris ac dolor posuere.
+            </p>
+            <div class="reviews">
+                <div class="review">
+                    <img src="../public/images/a1.png" alt="User 1">
+                    <p class="review-text">
+                        Maecenas malesuada urna in libero vestibulum eu dapibus 
+                        arcu lacinia. Duis eget felis sociosqu ac libero tempor 
+                        per convallis nostra interdum sollicitudin.
+                    </p>
+                    <p class="author">@Julia_Diaz</p>
+                </div>
+                <div class="review">
+                    <img src="../public/images/a2.png" alt="User 2">
+                    <p class="review-text">
+                        Pellentesque habitant morbi tristique senectus et netus et 
+                        malesuada fames ac turpis egestas. Vivamus id dapibus tortor.
+                    </p>
+                    <p class="author">@Lisa_Wright</p>
+                </div>
+            </div>
+        </section>
+    
+        
+        <section class="newsletter">
+            <h2>Sign up for the newsletter!</h2>
+            <p class="description">
+                Sign up for the newsletter and receive free web design knowledge.
+            </p>
+            <form class="signup-form">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </section>
+</body>
+</html>
+

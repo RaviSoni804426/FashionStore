@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <header>
+        <div>
+        <span>+9608710567</span>
+        <span>rk8715514@gmail.com</span>
+        </div>
+        <div>
+            <span class="bi bi-facebook"></span>
+            <span class="bi bi-twitter"></span>
+        </div>
+    </header>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews & Newsletter Signup</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews">
+        <h2>Customer reviews</h2>
+        <p class="description">
+            Nunc condimentum feugiat tellus sit amet lacinia. Pellentesque 
+            lobortis metus sed eros molestie, sit amet aliquet sapien accumsan. 
+            Mauris ac dolor posuere.
+        </p>
+        <div class="reviews">
+            <div class="review">
+                <img src="https://via.placeholder.com/60" alt="User 1">
+                <p class="review-text">
+                    Maecenas malesuada urna in libero vestibulum eu dapibus 
+                    arcu lacinia. Duis eget felis sociosqu ac libero tempor 
+                    per convallis nostra interdum sollicitudin.
+                </p>
+                <p class="author">@Julia_Diaz</p>
+            </div>
+            <div class="review">
+                <img src="https://via.placeholder.com/60" alt="User 2">
+                <p class="review-text">
+                    Pellentesque habitant morbi tristique senectus et netus et 
+                    malesuada fames ac turpis egestas. Vivamus id dapibus tortor.
+                </p>
+                <p class="author">@Lisa_Wright</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="newsletter">
+        <h2>Sign up for the newsletter!</h2>
+        <p class="description">
+            Sign up for the newsletter and receive free web design knowledge.
+        </p>
+        <form class="signup-form">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+</body>
+</html>
+
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p.description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Customer Reviews Section */
+.customer-reviews {
+    background-color: #fdf3f2;
+    padding: 50px 0;
+}
+
+.reviews {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.review {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review img {
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.author {
+    font-size: 14px;
+    font-weight: bold;
+    color: #f66;
+}
+
+/* Newsletter Signup Section */
+.newsletter {
+    background-color: #ff6a00;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.newsletter h2 {
+    color: white;
+}
+
+.signup-form input[type="email"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 4px;
+    border: none;
+    margin-right: 10px;
+}
+
+.signup-form button {
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.signup-form button:hover {
+    background-color: #e03c00;
+}
