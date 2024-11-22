@@ -166,9 +166,10 @@
               />
             </div>
             <div class="content mt-3">
-              <h4>Debugging</h4>
+              <h4>Mysql, MS Excel, Pandas</h4>
               <p class="text-muted">
-                "As a budding developer, I’m diving into coding by crafting my own personal portfolio—a small step toward building big dreams."
+                "Skilled in MS Excel for data analysis, advanced formulas, pivot tables, and visualization to deliver actionable insights."
+                Experienced in Pandas for data wrangling, analysis, and transformation in Python, enabling the extraction of meaningful insights from complex datasets.
               </p>
               <a href="" class="link">Read More</a>
             </div>
@@ -181,48 +182,78 @@
     <!-- skill section starts -->
     <section class="skill mt-5 py-5" id="about">
       <div class="row justify-content-evenly">
-        <div class="col-10 col-md-5 skill-with-progress" data-aos="slide-right">
-          <div class="row justify-content-evenly">
-            <div class="col-10 col-md-6">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress html-css">
-                  <span class="progress-value html-progress">45%</span>
-                </div>
-                <br />
-                <span class="text">HTML & CSS</span>
-              </div>
+        <style>
+          mybody {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+          }
+          .skills-section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          }
+          .skills-header {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #333;
+          }
+          .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+          }
+          .skill-card {
+            background-color: #6c63ff;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+          }
+          .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+          }
+          .skill-card h3 {
+            margin: 0;
+            font-size: 18px;
+          }
+        </style>
+      </head>
+      <mybody>
+        <section class="skills-section">
+          <div class="skills-header">My Skills</div>
+          <div class="skills-container">
+            <div class="skill-card">
+              <h3>HTML & CSS</h3>
             </div>
-            <div class="col-10 col-md-6 mt-4 mt-md-0">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress javascript">
-                  <span class="progress-value javascript-progress">50%</span>
-                </div>
-                <br />
-                <span class="text">Java till OOPS Concept</span>
-              </div>
+            <div class="skill-card">
+              <h3>Java and C++</h3>
+            </div>
+            <div class="skill-card">
+              <h3>MS Office</h3>
+            </div>
+            <div class="skill-card">
+              <h3>Beginner DSA</h3>
+            </div>
+            <div class="skill-card">
+              <h3>MySQL</h3>
+            </div>
+            <div class="skill-card">
+              <h3>Pandas</h3>
             </div>
           </div>
-          <div class="row justify-content-evenly mt-4">
-            <div class="col-10 col-md-6">
-              <div class="progress-card ms-3 ms-md-0">
-                <div class="circular-progress php">
-                  <span class="progress-value php-progress">20%</span>
-                </div>
-                <br />
-                <span class="text">DSA till stack</span>
-              </div>
-            </div>
-            <div class="col-10 col-md-6 mt-4 mt-md-0">
-              <div class="progress-card ms-3  ms-md-0">
-                <div class="circular-progress reactjs">
-                  <span class="progress-value reactjs-progress">80%</span>
-                </div>
-                <br>
-                <span class="text">MS Office</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        </section>
+      </mybody>
+        
         <div class="col-10 col-md-5 skill-detail" data-aos="slide-left">
           <div class="heading mt-5 mt-md-3">
             <small>My Skills</small>
@@ -252,113 +283,111 @@
     <!-- skill section end here -->
 
     <!-- portfolio section starts here -->
-    <!--<section class="portfolio" id="portfolio">
+    <section class="portfolio" id="portfolio">
       <div class="heading text-center pt-5">
         <small>Creative Work</small>
         <h3>Check My Portfolio</h3>
       </div>
 
       <div id="myBtnContainer" class="text-center mt-4">
-        <!-- here we will create custom attribute using data- for filtering 
+         here we will create custom attribute using data- for filtering 
         <button class="filter-item" data-filter="all">All</button>
-        <button class="filter-item" data-filter="game">Game</button>
-        <button class="filter-item" data-filter="webapp">Web App</button>
+        <!-- <button class="filter-item" data-filter="game"></button>
+        <button class="filter-item" data-filter="webapp">Web App</button> -->
         <button class="filter-item" data-filter="website">Website</button>
-        <button class="filter-item" data-filter="brand">Brand</button>
+        <button class="filter-item" data-filter="brand">DSA</button>
       </div>
       <div class="portfolio-body">
         <div class="row justify-content-evenly px-4">
           <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
             <div class="card">
-              <img src="images/2048game.png" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h4 class="card-title">2048 Game</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span>
-                <span class="badge bg-secondary badge-pill mb-2">Game</span
-                ><br />
-                <a href="#" class="link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
-            <div class="card">
-              <img
-                src="images/currency-converter.png"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body text-center">
-                <h4 class="card-title">Converter App</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span>
-                <span class="badge bg-secondary badge-pill mb-2">Website</span
-                ><br />
-                <a href="#" class="read-more-btn link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="post col-md-4 webapp all col-10 mt-3 mt-md-0" data-aos="fade-up">
-            <div class="card">
-              <img src="images/dictionary.png" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h4 class="card-title">Dictionary</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span>
-                <span class="badge bg-secondary badge-pill mb-2">WebApp</span
-                ><br />
-                <a href="#" class="read-more-btn link">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-evenly mt-4 px-4">
-          <div class="post col-md-4 game all col-10 mt-3 mt-md-0" data-aos="fade-up">
-            <div class="card">
-              <img src="images/piceditor.png" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h4 class="card-title">PicEditor App</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span>
-                <span class="badge bg-secondary badge-pill mb-2">App</span
-                ><br />
-                <a href="#" class="read-more-btn link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="post col-md-4 website all col-10 mt-3 mt-md-0" data-aos="fade-up">
-            <div class="card">
-              <img src="images/tictactoe.png" class="card-img-top" alt="..." />
-              <div class="card-body text-center">
-                <h4 class="card-title">TicTacToe Game</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span>
-                <span class="badge bg-secondary badge-pill mb-2">Game</span
-                ><br />
-                <a href="#" class="read-more-btn link">Read More</a>
-              </div>
-            </div>
-          </div>
-          <div class="post col-md-4 all col-10 mt-3 mt-md-0" data-aos="fade-up">
-            <div class="card">
-              <img
-                src="images/lang-translator.png"
-                class="card-img-top"
-                alt="..."
-              />
-              <div class="card-body text-center">
-                <h4 class="card-title">Lang Translator</h4>
-                <span class="badge bg-secondary badge-pill">HTML&CSS</span>
-                <span class="badge bg-secondary badge-pill">JavaScript</span>
-                <span class="badge bg-secondary badge-pill mb-2">Web App</span
-                ><br />
-                <a href="#" class="read-more-btn link">Read More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+              <style>
+                tobody {
+                  font-family: 'Arial', sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color: #f4f4f4;
+                }
+                .portfolio-section {
+                  max-width: 1200px;
+                  margin: 50px auto;
+                  padding: 20px;
+                  background: #ffffff;
+                  border-radius: 10px;
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                }
+                .portfolio-header {
+                  text-align: center;
+                  font-size: 32px;
+                  margin-bottom: 30px;
+                  color: #333;
+                }
+                .portfolio-container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: center;
+                  gap: 20px;
+                }
+                .project-card {
+                  width: 300px;
+                  background: #6c63ff;
+                  color: white;
+                  padding: 15px 20px;
+                  border-radius: 8px;
+                  text-align: center;
+                  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                  transition: transform 0.3s, box-shadow 0.3s;
+                }
+                .project-card:hover {
+                  transform: translateY(-5px);
+                  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+                }
+                .project-card h3 {
+                  margin: 0;
+                  font-size: 20px;
+                  margin-bottom: 10px;
+                }
+                .project-card p {
+                  font-size: 14px;
+                  line-height: 1.5;
+                }
+                @media (max-width: 900px) {
+                  .project-card {
+                    width: 100%;
+                  }
+                }
+              </style>
+            </head>
+            <tobody>
+              <tosection class="portfolio-section">
+                <div class="portfolio-container">
+                  <div class="project-card">
+                    <h3>Password Authentication (C++)</h3>
+                    <p>Developed a secure password authentication system in C++ using encryption techniques.</p>
+                  </div>
+                  <div class="project-card">
+                    <h3>Vrindavan Store Analysis</h3>
+                    <p>Conducted comprehensive data analysis of Vrindavan Store to optimize inventory and sales strategies.</p>
+                  </div>
+                  <div class="project-card">
+                    <h3>Gantt Chart</h3>
+                    <p>Created dynamic Gantt charts to streamline project planning and tracking.</p>
+                  </div>
+                  <div class="project-card">
+                    <h3>Sudoku Game (C++)</h3>
+                    <p>Designed and implemented an interactive Sudoku game in C++ with a user-friendly interface.</p>
+                  </div>
+                  <div class="project-card">
+                    <h3>Shopper Website</h3>
+                    <p>Developed a responsive e-commerce website for online shopping with a modern UI and seamless navigation.</p>
+                  </div>
+                  <div class="project-card">
+                    <h3>Zomato Website</h3>
+                    <p>Created a clone of Zomato's website, integrating features for restaurant search and reviews.</p>
+                  </div>
+                </div>
+              </tosection>
+            </tobody>
     <!-- portfolio section ends here -->
 
     <!-- testimonial section starts  -->

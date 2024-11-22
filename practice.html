@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Section</title>
+  <style>
+    tobody {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .portfolio-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .portfolio-header {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .portfolio-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .project-card {
+      width: 300px;
+      background: #6c63ff;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .project-card h3 {
+      margin: 0;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    @media (max-width: 768px) {
+      .project-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<tobody>
+  <tosection class="portfolio-section">
+    <div class="portfolio-container">
+      <div class="project-card">
+        <h3>Password Authentication (C++)</h3>
+        <p>Developed a secure password authentication system in C++ using encryption techniques.</p>
+      </div>
+      <div class="project-card">
+        <h3>Vrindavan Store Analysis</h3>
+        <p>Conducted comprehensive data analysis of Vrindavan Store to optimize inventory and sales strategies.</p>
+      </div>
+      <div class="project-card">
+        <h3>Gantt Chart</h3>
+        <p>Created dynamic Gantt charts to streamline project planning and tracking.</p>
+      </div>
+      <div class="project-card">
+        <h3>Sudoku Game (C++)</h3>
+        <p>Designed and implemented an interactive Sudoku game in C++ with a user-friendly interface.</p>
+      </div>
+      <div class="project-card">
+        <h3>Shopper Website</h3>
+        <p>Developed a responsive e-commerce website for online shopping with a modern UI and seamless navigation.</p>
+      </div>
+      <div class="project-card">
+        <h3>Zomato Website</h3>
+        <p>Created a clone of Zomato's website, integrating features for restaurant search and reviews.</p>
+      </div>
+    </div>
+  </tosection>
+</tobody>
+</html>
