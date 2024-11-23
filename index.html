@@ -269,15 +269,28 @@
               Quia voluptas sit aspernatur aut odit aut fugit, sed ruiano
               consequntar magni dolores.
             </p>
-            <button type="button" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
+            <!-- <button type="button" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill">
               <!-- here download attribute is used for adding download functionality to button  -->
-              <a
+              <!-- <a
                 href="Entry Level Web Developer Resume.pdf"
                 download="SampleCV"
                 style="text-decoration: none;color: #fff;"
                 >Download CV</a
               >
+            </button> -->
+            <button type="button" class="c-btn h-btn mt-3 py-3 px-5 rounded-pill" onclick="downloadCV()">
+              Download CV
             </button>
+            
+            <script>
+              function downloadCV() {
+                var link = document.createElement('a');
+                link.href ="../public/docs/ravi kumar best resume latest.pdf";
+                link.download = 'SampleCV';
+                link.click();
+                
+              }
+            </script>
           </div>
         </div>
       </div>
@@ -818,20 +831,10 @@
         <div class="col-md-5 col-10 mt-3 mt-md-0" data-aos="slide-left">
           <div class="contact-form">
             <div class="mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="Name"
-              />
+              <input type="text" class="form-control" id="nameInput" placeholder="Name" />
+              <input type="email" class="form-control" id="emailInput" placeholder="E-mail" />
             </div>
-            <div class="mb-3">
-              <input
-                type="email"
-                class="form-control"
-                id="exampleFormControlInput1"
-                placeholder="E-mail"
-              />
+            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Mobile No." />
             </div>
             <div class="mb-3">
               <input
@@ -859,14 +862,14 @@
     <!-- contact section ends here -->
 
       <!-- now we will make back to top button when user click on it it will be redirected to top page  -->
-    <button
+      <button
       type="button"
       class="btn btn-floating btn-lg rounded-pill"
       id="btn-back-to-top"
+      title="Back to top"
     >
       <i class="bi bi-arrow-up"></i>
     </button>
-
     <!-- footer section starts  -->
     <footer class="text-center text-muted py-4">
       <h3 class="text-white pt-4" data-aos="fade-up">Portfolio</h3>
@@ -884,13 +887,13 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="social-links mt-5" data-aos="fade-up">
-        <button href="" class="rounded-pill dribble">
+        <button type="button" href="" class="rounded-pill dribble">
           <i class="bi bi-linkedin"></i>
         </button>
-        <button href="" class="rounded-pill whatsapp">
+        <bu type="button" href="" class="rounded-pill whatsapp">
           <i class="bi bi-whatsapp"></i>
         </button>
-        <button href="" class="rounded-pill behance">
+        <bu type="button" href="" class="rounded-pill behance">
           <i class="bi bi-behance"></i>
         </button>
       </div>
