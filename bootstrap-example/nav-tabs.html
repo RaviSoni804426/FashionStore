@@ -3,29 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Navigation</title>
+    <title>Flipkart Navigation</title>
     <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .navbar {
+            background-color: #2874f0; /* Flipkart's primary color */
+        }
+        .navbar .nav-link, .navbar .btn {
+            color: white;
+        }
+        .navbar .btn:hover, .navbar .nav-link:hover {
+            color: #ffe500; /* Flipkart's accent color */
+        }
+        .dropdown-menu {
+            min-width: 200px;
+        }
+    </style>
 </head>
 <body>
-    <div class="container mt-5 ">
-        <ul class="nav nav-tabs justify-content-center">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Basic Details</a>
-                
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Preview</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Ratings</a>
-            </li>
-        </ul>
-    </div>
-    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold" href="#">Flipkart</a>
+
+            <!-- Search Bar -->
+            <form class="d-flex me-auto" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search for products, brands, and more" aria-label="Search">
+                <button class="btn btn-warning text-dark" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
+
+            <!-- Navigation Links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> My Profile</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-stars"></i> Flipkart Plus Zone</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-bag"></i> Orders</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-heart"></i> Wishlist</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gift"></i> Rewards</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-card-giftcard"></i> Gift Cards</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- Cart -->
+            <button class="btn btn-outline-light">
+                <i class="bi bi-cart3"></i> Cart
+            </button>
+        </div>
+    </nav>
+
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
 </body>
