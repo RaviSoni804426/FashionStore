@@ -5,7 +5,8 @@
 // console.log(y);
 // const z=11;//const is always constant .
 // console.log(z);
-let a=5;
-let b="5";
-console.log(a===b);
-console.log(a==b);
+// let a=5;
+// let b="5";
+// console.log(a===b);// it compare value  and type both.
+// console.log(a==b);
+console.log(typeof("ravi"));
