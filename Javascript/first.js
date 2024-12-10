@@ -9,4 +9,8 @@
 // let b="5";
 // console.log(a===b);// it compare value  and type both.
 // console.log(a==b);
-console.log(typeof("ravi"));
+// console.log(typeof("ravi"));
+console.log(sum(2,3));
+function sum(x,y){
+    return x+y;
+}
