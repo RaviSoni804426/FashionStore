@@ -41,11 +41,24 @@
 //     console.log(val*val)
 // });
 
-let nums=[9,9,16,25];
-nums.map((val)=>{
-    console.log(val);
-});
+// let nums=[9,9,16,25];
+// nums.map((val)=>{
+//     console.log(val);
+// });
 
+
+// let arr=[1,2,6,8,4,3];
+// let evenArr=arr.filter((val)=>{
+//     return val % 2===0;
+// });
+// console.log(evenArr);
+
+let n=prompt("enter a number: ");
+let arr=[];
+for(let i=1;i<=n;i++){
+    arr[i-1]=i;
+}
+console.log(arr);
 
 
 

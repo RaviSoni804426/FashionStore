@@ -2,7 +2,8 @@
   "dependencies": {
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
-    "jquery": "^3.7.1"
+    "jquery": "^3.7.1",
+    "prompt-sync": "^4.2.0"
   },
   "name": "fashionstore",
   "version": "1.0.0",
