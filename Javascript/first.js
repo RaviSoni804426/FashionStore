@@ -25,15 +25,21 @@
 // };
 // printHello("my nae is ravi kumar");
 
-function count(str){
-    let count=0;
-    for(const char of str)
-        if(char==="a" || char==="e" || char==="i"){
-            count++;
-        }
-        console.log(count);
-}
-count("aeiouu");
+// function count(str){
+//     let count=0;
+//     for(const char of str)
+//         if(char==="a" || char==="e" || char==="i"){
+//             count++;
+//         }
+//         console.log(count);
+// }
+// count("aeiouu");
+
+
+// let arr=[1,2,3,4];
+// arr.forEach((val)=>{
+//     console.log(val*val)
+// });
 
 
 
