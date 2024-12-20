@@ -41,7 +41,10 @@
 //     console.log(val*val)
 // });
 
-
+let nums=[9,9,16,25];
+nums.map((val)=>{
+    console.log(val);
+});
 
 
 
