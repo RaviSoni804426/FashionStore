@@ -1,3 +1,6 @@
-let h2=document.querySelector("h2")
-console.dir(h2.innerText)
-h2.innerText=h2.innerText+" from apna colleege";
+let div=document.querySelector("div");
+console.log(div);
+
+let id=div.getAttribute("id");
+console.log(id);
+
