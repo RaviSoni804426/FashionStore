@@ -1,6 +1,4 @@
-let div=document.querySelector("div");
-console.log(div);
+let div=document.querySelector("");
+console.log(param.setAttribute("class","new class"));
 
-let id=div.getAttribute("id");
-console.log(id);
 
