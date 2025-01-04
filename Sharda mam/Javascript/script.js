@@ -1,1 +1,2 @@
-console.log("hello world")
+let heading=document.getElementById("hading");
+console.dir(heading)
