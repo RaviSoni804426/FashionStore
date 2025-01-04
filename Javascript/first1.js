@@ -61,22 +61,23 @@
 // console.log(arr);
 
 
-const readline = require("readline");
+// const readline = require("readline");
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
 
-rl.question("Enter a number: ", (n) => {
-  n = parseInt(n); // Convert the input to a number
-  let arr = [];
-  for (let i = 1; i <= n; i++) {
-    arr[i - 1] = i;
-  }
-  console.log(arr);
-  rl.close();
-});
+// rl.question("Enter a number: ", (n) => {
+//   n = parseInt(n); // Convert the input to a number
+//   let arr = [];
+//   for (let i = 1; i <= n; i++) {
+//     arr[i - 1] = i;
+//   }
+//   console.log(arr);
+//   rl.close();
+// });
+
 
 
 
