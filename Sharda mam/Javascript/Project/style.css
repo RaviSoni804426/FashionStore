@@ -34,14 +34,14 @@ h1 {
     justify-content: center;
     font-size: 48px;
     font-weight: bold;
-    color: #8a2323; /* X and O color */
-    border-radius: 10px; /* Rounded corners */
+    color: #8a2323; 
+    border-radius: 10px; 
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .cell:hover {
-    background-color: #f0f0f0; /* Slight hover effect */
+    background-color: #f0f0f0; 
 }
 
 .reset {
