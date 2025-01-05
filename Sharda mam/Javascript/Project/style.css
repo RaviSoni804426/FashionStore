@@ -40,11 +40,11 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.cell:hover {
+.box:hover {
     background-color: #f0f0f0; 
 }
 
-.reset {
+#reset-btn {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
@@ -57,6 +57,6 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.reset:hover {
+#reset-btn:hover {
     background-color: #333;
 }
