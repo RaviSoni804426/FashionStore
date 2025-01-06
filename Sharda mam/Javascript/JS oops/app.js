@@ -6,16 +6,20 @@
 //     },
 // };
 
-class ToyotaCar{
-    constructor(){
-        console.log("creating new object");
-    }
+// class ToyotaCar{
+//     constructor(){
+//         console.log("creating new object");
+//     }
 
-    start(){
-        console.log("start");
-    }
-    stop(){
-       console.log("stop");
-    }
-}
-let fortuner=new ToyotaCar();
+//     start(){
+//         console.log("start");
+//     }
+//     stop(){
+//        console.log("stop");
+//     }
+// }
+// let fortuner=new ToyotaCar();
+
+
+
+
