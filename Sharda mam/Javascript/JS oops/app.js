@@ -23,3 +23,34 @@
 
 
 
+// class Person{
+//     constructor(){
+//         this.species="homo species"
+//     }
+//     eat(){
+//         console.log("eat")
+//     }
+// }
+// class Engineer extends Person{
+//     constructor(branch){
+//         super();
+//         this.branch=branch;
+//     }
+//     work(){
+//         console.log("solve dsa problem")
+//     }
+// }
+// let engObj=new Engineer("Computer Science")
+
+
+// let DATA="secret Information";
+// class User{
+//     constructor(name,email){
+//         this.name=name;
+//         this.email=email;
+
+//     }
+//   viewData(){
+//     console.log("data")
+//   }
+// }
