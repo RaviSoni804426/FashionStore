@@ -89,8 +89,14 @@
 //     console.log("promise resolved");
 // });
 
+// async function Hello(){
+//     console.log("Hello");
 
+// }
 
+function api(){
+    return new Promise()
+}
 
 
 
