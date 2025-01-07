@@ -94,9 +94,14 @@
 
 // }
 
-function api(){
-    return new Promise()
-}
+// function api(){
+//     return new Promise((resolve,reject)=>{
+//         sertTimeout(()=>{
+//             console.log("weather data");
+//             resolve(200);
+//         },2000);
+//     });
+// }
 
 
 
