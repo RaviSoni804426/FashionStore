@@ -78,16 +78,17 @@
 //         });
 //     });
 // });
-const getPromise=()=>{
-let promise=new Promise((resolve,reject)=>{
-    console.log("I am a promise");
-resolve("success");
-});
-};
-let promise=getPromise();
-promise.then(() => {
-    console.log("promise resolved");
-});
+// const getPromise=()=>{
+// let promise=new Promise((resolve,reject)=>{
+//     console.log("I am a promise");
+// resolve("success");
+// });
+// };
+// let promise=getPromise();
+// promise.then(() => {
+//     console.log("promise resolved");
+// });
+
 
 
 
