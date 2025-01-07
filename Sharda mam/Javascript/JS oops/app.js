@@ -86,5 +86,14 @@ resolve("success");
 };
 let promise=getPromise();
 promise.then(() => {
-    
+    console.log("promise resolved");
+});
+
+
+
+
+
+
+
+
    

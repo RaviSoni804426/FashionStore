@@ -4,7 +4,7 @@ const newGameBtn = document.querySelector("#new-btn");
 const msgContainer = document.querySelector(".msg-container");
 const msg = document.querySelector("#msg");
 
-let turno = true; // true for 'O', false for 'X'
+let turno = true; 
 let boardState = Array(9).fill("");
 
 const winPatterns = [
