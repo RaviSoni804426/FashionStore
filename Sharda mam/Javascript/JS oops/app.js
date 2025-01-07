@@ -65,5 +65,16 @@
 // calculator(1,2,sum)
 
 
-let age=20;
-if(age>=18)
+// function getData(dataId,getNextData){
+//     setTimeout(()=>{
+//         console.log("data",dataId);
+//         getNextData();
+//     },200); 
+// }
+// getData(1,() =>{
+//     getData(2,()=>{
+//         getData(3,()=>{
+
+//         });
+//     });
+// });
