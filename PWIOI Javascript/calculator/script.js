@@ -1,4 +1,4 @@
-// script.js
+
 const display = document.getElementById("display");
 
 // Append value to the display
