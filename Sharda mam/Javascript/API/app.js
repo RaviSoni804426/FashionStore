@@ -1,4 +1,5 @@
-const URL='https://cat-fact.herokuapp.com/facts';
+const URL="https://cat-fact.herokuapp.com/facts";
+const factPara=document.querySelector("#fact")
 
 
 let promise=fetch(URL);
@@ -10,4 +11,10 @@ const getFacts=async()=>{
     console.log(response);
     let data= await response.json;
     console.log(data);
+    function getFacts(){
+        fetch(URL).then((response));
+
+        //How to send post request.
+    
+    }
 };
