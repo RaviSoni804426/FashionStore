@@ -36,6 +36,7 @@ const updateExchangeRate = async () => {
   }
 
   try {
+    
     const response = await fetch(`${BASE_URL}/${fromCurr.value}`);
     if (!response.ok) throw new Error("Failed to fetch exchange rates");
     const data = await response.json();
