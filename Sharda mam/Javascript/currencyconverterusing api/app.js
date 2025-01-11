@@ -7,7 +7,7 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
-
+let i=0;
 for (let select of dropdowns) {
   for (let currCode in countryList) {
     let newOption = document.createElement("option");
@@ -15,7 +15,7 @@ for (let select of dropdowns) {
     newOption.value = currCode;
     if (select.name === "from" && currCode === "USD") {
       newOption.selected = "selected";
-    } else if (select.name === "to" && currCode === "INR") {
+    } else if (select.name === "To" && currCode === "INR") {
       newOption.selected = "selected";
     }
     select.append(newOption);
@@ -36,7 +36,7 @@ const updateExchangeRate = async () => {
   }
 
   try {
-    
+
     const response = await fetch(`${BASE_URL}/${fromCurr.value}`);
     if (!response.ok) throw new Error("Failed to fetch exchange rates");
     const data = await response.json();
