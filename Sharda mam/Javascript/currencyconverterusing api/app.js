@@ -7,16 +7,7 @@ const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
 
-// Define the country list mapping currency codes to country codes
-// const countryList = {
-//   USD: "US",
-//   INR: "IN",
-//   EUR: "EU",
-//   GBP: "GB",
-//   // Add more currency-country mappings as needed
-// };
 
-// Populate dropdowns with currency codes
 for (let select of dropdowns) {
   for (let currCode in countryList) {
     let newOption = document.createElement("option");
@@ -35,7 +26,7 @@ for (let select of dropdowns) {
   });
 }
 
-// Update exchange rate
+
 const updateExchangeRate = async () => {
   let amount = document.querySelector(".amount input");
   let amtVal = parseFloat(amount.value);
@@ -61,7 +52,7 @@ const updateExchangeRate = async () => {
   }
 };
 
-// Update flag
+
 const updateFlag = (element) => {
   let currCode = element.value;
   let countryCode = countryList[currCode];
@@ -72,13 +63,12 @@ const updateFlag = (element) => {
   }
 };
 
-// Button click event
+
 btn.addEventListener("click", (evt) => {
   evt.preventDefault();
   updateExchangeRate();
 });
 
-// Initialize exchange rate on page load
 window.addEventListener("load", () => {
   updateExchangeRate();
 });
