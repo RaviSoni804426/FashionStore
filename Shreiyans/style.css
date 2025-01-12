@@ -1,3 +1,5 @@
+/* this is the css boiler code h. */
+
 *{
     margin:0;
     padding:0;
@@ -6,4 +8,11 @@
 html,body{
     width: 100%;
     height: 100%;
+}
+#main{
+ width:100%;
+ height:100%;
+ background-image: url(https://images.unsplash.com/photo-1520406153111-4d1d4cfd3684?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw5NTY0ODYzfHxlbnwwfHx8fHw%3D);
+ background-size: cover;
+ background-position:bottom;
 }
