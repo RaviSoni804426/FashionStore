@@ -5,9 +5,14 @@
 //     document.getElementById("mydiv").style.color="red";
 // }
 
-function(data,value){
-    this.data=a;
-    this.value=b;
-console.log(a,b)
+// function(data,value){
+//     this.data=a;
+//     this.value=b;
+// console.log(a,b)
+// }
+// function(2,3);
+
+const greet=function(name){
+    console,log("hello",+name)
 }
-function(2,3);
+greet("raavi kumar");
