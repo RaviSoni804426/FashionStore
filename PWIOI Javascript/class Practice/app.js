@@ -19,11 +19,27 @@
 
 // console.log("ravi kumar");
 
-const person = {
-    name: "ravi", 
-    key: function() {
-        console.log("hello " + this.name);
-    }
-};
+// const person = {
+//     name: "ravi", 
+//     key: function() {
+//         console.log("hello " + this.name);
+//     }
+// };
 
-person.key(); 
+// person.key(); 
+
+const functions=[
+    function(){
+        console.log("ravi");
+    },
+    function(){
+        console.log("kumar");
+    },
+    function(){
+        console.log("soni");
+    }
+    
+];
+functions[0]();
+functions[1]();
+functions[2]();
