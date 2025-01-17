@@ -12,7 +12,18 @@
 // }
 // function(2,3);
 
-const greet=function(name){
-    console,log("hello",+name)
-}
-greet("raavi kumar");
+// const greet=function(name){
+//     console,log("hello",+name)
+// }
+// greet("raavi kumar");
+
+// console.log("ravi kumar");
+
+const person = {
+    name: "ravi", 
+    key: function() {
+        console.log("hello " + this.name);
+    }
+};
+
+person.key(); 
