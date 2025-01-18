@@ -28,19 +28,22 @@
 
 // person.key(); 
 
-const functions=[
-    function(){
-        console.log("ravi");
-    },
-    function(){
-        console.log("kumar");
-    },
-    function(){
-        console.log("soni");
-    }
+// const functions=[
+//     function(){
+//         console.log("ravi");
+//     },
+//     function(){
+//         console.log("kumar");
+//     },
+//     function(){
+//         console.log("soni");
+//     }
     
-];
-functions[0]();
-functions[1]();
-functions[2]();
+// ];
+// functions[0]();
+// functions[1]();
+// functions[2]();
+
+
+console.log("hello world")
 
