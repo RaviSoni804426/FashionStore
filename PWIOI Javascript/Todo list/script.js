@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const addButton = document.getElementById("add-btn");
     const todoList = document.getElementById("todo-list");
 
-    
     const addTask = () => {
         const taskText = todoInput.value.trim();
         if (taskText === "") {
