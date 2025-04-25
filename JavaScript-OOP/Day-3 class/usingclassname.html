@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Using getElementsByName with forEach</title>
 </head>
+<script='text/javascript'>
+    function addItem(){
+       itemLengthusingQuerySelector=documnet.querySelectorAll(".item");
+       itemLengthusingClass
+         
+    }
+</script>
 <body>
   <h2>My class</h2>
-  <ul>
-    <li name="item">app</li>
-    <li name="item">mobile</li>
-    <li name="item">website</li>
+  <ul class="item">
+    <li class="item">item-1</li>
+    <li class="item">item-2</li>
   </ul>
   <script type="text/javascript">
-    const liElements = document.getElementsByName('item');
+    const liElements = document.querySelector('item');
     Array.from(liElements).forEach(function(value) {
       value.style.cssText = 'margin: 25px; color: blue';
     });
