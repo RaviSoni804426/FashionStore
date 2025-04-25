@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="text/javascript">
-    </script>
-   
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Using getElementsByName with forEach</title>
 </head>
 <body>
-   <h2> My class</h2>
-   <ul id="shoping list">
-    <li>app</li>
-    <li>mobile</li>
-    <li>website</li>
-   </ul>
-    <script type="text/javascript">
-        liElements=document.getElementsByTagName('li');
-        [...liElements].forEach(function(value){
-            value.style.cssText='margin: 25px; color:pink';
-        })
-    </script>
-    
+  <h2>My class</h2>
+  <ul>
+    <li name="item">app</li>
+    <li name="item">mobile</li>
+    <li name="item">website</li>
+  </ul>
+  <script type="text/javascript">
+    const liElements = document.getElementsByName('item');
+    Array.from(liElements).forEach(function(value) {
+      value.style.cssText = 'margin: 25px; color: blue';
+    });
+  </script>
 </body>
 </html>
