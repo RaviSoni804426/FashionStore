@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Booking</title>
+  <style>
+    body {
+      margin: 0;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    select, button {
+      background-color: #1e90ff;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      color: white;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover, select:focus {
+      opacity: 0.9;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .summary {
+      background-color: #1c2025;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .summary-item {
+      margin: 10px 0;
+    }
+
+    img {
+      width: 150px;
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title">Quick Movie Booking</div>
+
+  <div id="bookingSection">
+    <select id="movieSelect">
+      <option value="">Select Movie</option>
+      <option value="Avengers">Avengers</option>
+      <option value="Inception">Inception</option>
+      <option value="Interstellar">Interstellar</option>
+    </select>
+
+    <select id="cinemaSelect">
+      <option value="">Select Cinema</option>
+      <option value="PVR Cinemas">PVR Cinemas</option>
+      <option value="INOX">INOX</option>
+      <option value="Cinepolis">Cinepolis</option>
+    </select>
+
+    <select id="dateSelect">
+      <option value="">Select Date</option>
+      <option value="2025-05-01">2025-05-01</option>
+      <option value="2025-05-02">2025-05-02</option>
+      <option value="2025-05-03">2025-05-03</option>
+    </select>
+
+    <select id="seatSelect">
+      <option value="">Select Seats</option>
+      <option value="A1">A1, A2</option>
+      <option value="B1">B1, B2</option>
+      <option value="C3">C3, C4</option>
+    </select>
+
+    <br>
+    <button onclick="bookNow()">Book</button>
+  </div>
+
+  <div id="showSummaryBtn" class="hidden">
+    <button onclick="showSummary()">Show Booking Summary</button>
+  </div>
+
+
+  <div id="summarySection" class="summary hidden">
+    <h2> Your Booking Summary</h2>
+    <img id="moviePoster" src="https://via.placeholder.com/150" alt="Movie Poster" />
+    <div class="summary-item"> Movie: <span id="summaryMovie"></span></div>
+    <div class="summary-item"> Cinema: <span id="summaryCinema"></span></div>
+    <div class="summary-item"> Date: <span id="summaryDate"></span></div>
+    <div class="summary-item">Seats: <span id="summarySeats"></span></div>
+    <div class="summary-item"> Time: 6:00 PM</div>
+    <div class="summary-item"> Screen: Screen-2</div>
+  </div>
+
+  <script>
+    function bookNow() {
+      const movie = document.getElementById('movieSelect').value;
+      const cinema = document.getElementById('cinemaSelect').value;
+      const date = document.getElementById('dateSelect').value;
+      const seats = document.getElementById('seatSelect').value;
+
+      if (!movie || !cinema || !date || !seats) {
+        alert("❗ Please fill in all booking details!");
+        return;
+      }
+
+      
+      const booking = { movie, cinema, date, seats };
+      localStorage.setItem("bookingData", JSON.stringify(booking));
+
+
+      document.getElementById('bookingSection').classList.add('hidden');
+      document.getElementById('showSummaryBtn').classList.remove('hidden');
+    }
+
+    function showSummary() {
+      const booking = JSON.parse(localStorage.getItem("bookingData"));
+      if (!booking) {
+        alert("❗ No booking found!");
+        return;
+      }
+
+      document.getElementById('summaryMovie').innerText = booking.movie;
+      document.getElementById('summaryCinema').innerText = booking.cinema;
+      document.getElementById('summaryDate').innerText = booking.date;
+      document.getElementById('summarySeats').innerText = booking.seats;
+
+      document.getElementById('summarySection').classList.remove('hidden');
+      document.getElementById('showSummaryBtn').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
