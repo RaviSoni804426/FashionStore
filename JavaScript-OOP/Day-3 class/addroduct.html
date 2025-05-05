@@ -70,6 +70,9 @@
       color: white;
     }
   </style>
+  <script type="test/javascript">
+   
+</script>
 </head>
 <body>
 
@@ -91,18 +94,16 @@
         <option value="C3">Mumbai</option>
       </select>
 
-      <label>Stock Status</label>
-      <div class="radio-group">
-        <label><input type="radio" name="stock" value="In Stock" required /> In Stock</label>
-        <label><input type="radio" name="stock" value="Out of Stock" /> Out of Stock</label>
-      </div>
+      <label>
+        <input type="checkbox" name="stock" />
+        Available
+      </label>
 
       <div class="footer">
-        <button type="submit" class="register">Register</button>
+        <button type="submit" class="register" onclick="register()">Register</button>
         <button type="reset" class="cancel">Cancel</button>
       </div>
     </form>
   </div>
-
 </body>
 </html>
