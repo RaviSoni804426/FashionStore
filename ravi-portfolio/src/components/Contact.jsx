@@ -2,37 +2,58 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Linkedin, Github, Code, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
-
 const Contact = () => {
-    const formRef = React.useRef();
-    const [loading, setLoading] = React.useState(false);
-    const [status, setStatus] = React.useState({ type: '', message: '' });
+  const formRef = React.useRef();
+  const [loading, setLoading] = React.useState(false);
+  const [status, setStatus] = React.useState({ type: '', message: '' });
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setStatus({ type: '', message: '' });
+  const handleSubmit = (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setStatus({ type: '', message: '' });
 
-        // REPLACE THESE WITH YOUR ACTUAL EMAILJS SERVICE ID, TEMPLATE ID, AND PUBLIC KEY
-        // You can get them from https://dashboard.emailjs.com/
-        emailjs.sendForm(
-            import.meta.env.VITE_EMAILJS_SERVICE_ID,
-            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-            formRef.current,
-            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-        )
-            .then(() => {
-                setLoading(false);
-                setStatus({ type: 'success', message: 'Message sent successfully! I will get back to you soon.' });
-                formRef.current.reset();
-                setTimeout(() => setStatus({ type: '', message: '' }), 5000);
-            }, (error) => {
-                setLoading(false);
-                const errorMessage = error.text || error.message || 'Something went wrong';
-                setStatus({ type: 'error', message: `Error: ${errorMessage}. Please check console or try again.` });
-                console.error('EmailJS Error:', error);
-            });
-    };
+  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
+  const templateParams = {
+    from_name: formRef.current.from_name.value,
+    from_email: formRef.current.from_email.value,
+    message: formRef.current.message.value,
+  };
+
+  // 1️⃣ Send mail to YOU (Admin)
+  emailjs
+    .send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      'template_o4jewgj', // Admin notification
+      templateParams
+    )
+    .then(() => {
+      // 2️⃣ Send confirmation mail to USER
+      return emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        'template_dlv0s1z', // User confirmation
+        templateParams
+      );
+    })
+    .then(() => {
+      setLoading(false);
+      setStatus({
+        type: 'success',
+        message: 'Message sent successfully! Please check your email.',
+      });
+      formRef.current.reset();
+    })
+    .catch((error) => {
+      setLoading(false);
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.',
+      });
+      console.error('EmailJS Error:', error);
+    });
+};
+
+
 
     return (
         <section id="contact" className="section-padding bg-dark relative">

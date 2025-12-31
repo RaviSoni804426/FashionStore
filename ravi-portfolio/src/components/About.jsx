@@ -25,7 +25,7 @@ const About = () => {
                             I am a Data Scientist and Machine Learning Engineer passionate about transforming raw data into actionable business insights. My expertise lies in building scalable ML models, optimizing deep learning algorithms, and deploying AI solutions that drive real-world impact.
                         </p>
                         <p className="text-gray-400 leading-relaxed mb-8">
-                            With a strong freelancing mindset, I focus on delivering clean, efficient, and production-ready code. Whether it's Computer Vision for surveillance or Predictive Analytics for traffic congestion, I turn abstract challenges into concrete technical solutions.
+                            With a strong freelancing mindset, I focus on delivering clean, efficient, and production-ready code. Whether it&apos;s Computer Vision for surveillance or Predictive Analytics for traffic congestion, I turn abstract challenges into concrete technical solutions.
                         </p>
 
                         <div className="grid grid-cols-2 gap-6">
