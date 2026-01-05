@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Audio Element (Hidden) -->
+    <!-- Ideally, user would add a local file or I can use a copyright-free URL if available. For now, placeholder. -->
+    <audio id="bg-music" loop>
+        <source src="" type="audio/mp3">
+    </audio>
+
+    <!-- Loading Overlay -->
+    <div id="loading">
+        <div class="loader-content">
+            <i class="fa-solid fa-gift fa-bounce" style="color: #ffd700; font-size: 3rem;"></i>
+            <p>Loading Surprise...</p>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container hidden" id="main-content">
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="stars"></div>
+            <div class="hero-content">
+                <span class="sub-title">It's a special day...</span>
+                <h1 class="main-title">Happy Birthday <br> <span class="highlight">Upasana</span></h1>
+                <p class="tagline">The world is better with you in it.</p>
+                <button id="start-btn" class="btn-primary">Let's Celebrate <i
+                        class="fa-solid fa-wand-magic-sparkles"></i></button>
+            </div>
+            <div class="scroll-indicator">
+                <i class="fa-solid fa-chevron-down fa-fade"></i>
+            </div>
+        </header>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section" id="gallery">
+            <h2>Beautiful Memories</h2>
+            <div class="gallery-grid">
+                <!-- Placeholders for images -->
+                <div class="gallery-item">
+                    <div class="placeholder-img"><i class="fa-regular fa-image"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><i class="fa-regular fa-image"></i></div>
+                </div>
+                <div class="gallery-item">
+                    <div class="placeholder-img"><i class="fa-regular fa-image"></i></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section class="message-section">
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <h3>A Letter for You</h3>
+                        <i class="fa-solid fa-envelope-open-text"></i>
+                        <p>Tap to read</p>
+                    </div>
+                    <div class="card-back">
+                        <p class="message-text">
+                            Dear Upasana,<br><br>
+                            Wishing you a day filled with happiness and a year filled with joy. You are an amazing
+                            friend and I'm so lucky to have you in my life.<br><br>
+                            May all your dreams come true!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Surprise / Cake -->
+        <section class="cake-section">
+            <div class="cake-container">
+                <button id="cut-cake-btn" class="btn-secondary">Make a Wish & Cut Cake 🎂</button>
+                <div class="cake hidden-cake" id="cake">
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="layer layer-top"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-bottom"></div>
+                </div>
+                <div id="wish-message" class="hidden-message">
+                    <h3>✨ May your wish come true! ✨</h3>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Made with ❤️ for you.</p>
+        </footer>
+
+    </div>
+
+    <!-- Canvas for Confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
