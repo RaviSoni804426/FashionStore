@@ -1,16 +1,58 @@
-# React + Vite
+# Ravi Kumar - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the personal portfolio website of Ravi Kumar, Data Scientist & Machine Learning Engineer. It showcases projects, skills, and professional experience in a modern, responsive interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Progressive Web App (PWA)**: Fully installable as an app on desktop and mobile. Works offline.
+- **Modern Design**: Built with React and Tailwind CSS for a sleek, dark-themed aesthetic.
+- **Responsive**: Perfectly optimized for all screen sizes.
+- **Interactive**: Smooth animations powered by Framer Motion.
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React, Vite
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **PWA**: Vite PWA Plugin
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- Node.js installed
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Development
+
+Start the local development server:
+```bash
+npm run dev
+```
+
+### PWA & Production Build
+
+To build the application and test the PWA features (install prompt, offline mode):
+
+1. **Build the project**:
+   ```bash
+   npm run build
+   ```
+
+2. **Preview the build**:
+   ```bash
+   npm run preview
+   ```
+   Open the link shown (e.g., `http://localhost:4173`) to see the installable app.
+
+## License
+
+Personal and confidential.

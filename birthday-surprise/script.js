@@ -89,7 +89,7 @@ document.getElementById('cake').addEventListener('click', () => {
         // Show Message
         setTimeout(() => {
             const msg = document.getElementById('wish-message');
-            msg.innerHTML = "<h3>✨ May all your wishes come true, Upasana! ✨</h3><p>Enjoy your special day!</p>";
+            msg.innerHTML = "<h3>✨ May all your wishes come true, Diya! ✨</h3><p>Enjoy your special day!</p>";
             msg.classList.remove('hidden-message');
             msg.classList.add('show-message');
         }, 1000);
