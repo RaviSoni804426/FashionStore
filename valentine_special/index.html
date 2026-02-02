@@ -24,11 +24,6 @@
         <span>✨</span><span>🦋</span><span>🌺</span><span>💘</span><span>💝</span>
     </div>
 
-    <!-- Background Music -->
-    <audio id="bgMusic" loop>
-        <source src="music.mp3" type="audio/mp3">
-    </audio>
-
     <div class="container">
 
         <!-- Step 1: Greeting -->
@@ -51,7 +46,7 @@
         <!-- Step 3: Answer to Q1 -->
         <div id="step3" class="screen hidden">
             <h2 class="love-text">It's just talking to you. 💖</h2>
-            <p class="sub-text">Your smile is literally the highlight of my week.</p>
+            <p class="sub-text">Your smile and and kind nature is literally the highlight of my week.</p>
             <button class="btn next-btn" onclick="nextStep(4)">Aw, really? 🙈</button>
         </div>
 
@@ -87,17 +82,26 @@
                 </div>
 
                 <div id="finalMessage" class="love-text-2 hidden">
-                    <p>I promise to make you smile every single day.</p>
-                    <p class="glow-text">You are my Favorite Person. Forever. 💖✨</p>
+                    <p id="typingText1"></p> <!-- Container for typing effect -->
+                    <p id="typingText2" class="glow-text"></p>
                     <br>
-                    <h3 class="final-wish">Happy Valentine’s Day, My Rashmi 🌹💘</h3>
+                    <h3 id="typingText3" class="final-wish typing-cursor"></h3>
+
+                    <!-- New Wish Section -->
+                    <div id="wishSection" class="wish-container">
+                        <p class="wish-label">Wish him back? 💌</p>
+                        <div class="input-group">
+                            <input type="text" id="wishInput" placeholder="Write a sweet message..." class="wish-input">
+                            <button id="sendWishBtn" class="btn send-btn">Send 🚀</button>
+                        </div>
+                        <p id="wishSuccess" class="wish-success hidden">Message Sent! ❤️ He will love it.</p>
+                    </div>
                 </div>
             </div>
+
         </div>
 
-    </div>
-
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>

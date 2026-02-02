@@ -22,13 +22,6 @@ function nextStep(stepNumber) {
         nextScreen.classList.remove('hidden');
         nextScreen.classList.add('active');
 
-        // Attempt to play music on first interaction (User clicks "What is it?")
-        const bgMusic = document.getElementById('bgMusic');
-        if (bgMusic.paused && stepNumber === 2) {
-            bgMusic.volume = 0.5;
-            bgMusic.play().catch(e => console.log("Audio play failed:", e));
-        }
-
     }, 500);
 }
 
@@ -60,21 +53,69 @@ document.addEventListener('DOMContentLoaded', () => {
             noBtn.style.position = 'absolute';
         }
 
-        // Calculate random position within viewport
-        // Keep it safe from edges
-        const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-        const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+        const container = document.querySelector('.buttons-container');
+        const containerRect = container.getBoundingClientRect();
+        const yesRect = yesBtn.getBoundingClientRect();
 
-        const randomX = Math.max(20, Math.random() * maxX);
-        const randomY = Math.max(20, Math.random() * maxY);
+        // Calculate YES button position relative to the container
+        const yesLeft = yesRect.left - containerRect.left;
+        const yesTop = yesRect.top - containerRect.top;
+
+        // Define range around the YES button (~40px which is roughly 1cm)
+        const range = 40;
+
+        let randomX, randomY;
+        let valid = false;
+        let attempts = 0;
+
+        // Container bounds
+        const maxX = containerRect.width - noBtn.offsetWidth;
+        const maxY = containerRect.height - noBtn.offsetHeight;
+
+        while (!valid && attempts < 30) {
+            // Generate random offset from Yes button center
+            const offsetX = (Math.random() - 0.5) * range * 4; // spread out a bit horizontally
+            const offsetY = (Math.random() - 0.5) * range * 3; // spread out vertically
+
+            randomX = yesLeft + (yesRect.width / 2) + offsetX - (noBtn.offsetWidth / 2);
+            randomY = yesTop + (yesRect.height / 2) + offsetY - (noBtn.offsetHeight / 2);
+
+            // 1. Clamp to container edges
+            randomX = Math.max(0, Math.min(randomX, maxX));
+            randomY = Math.max(0, Math.min(randomY, maxY));
+
+            // 2. Check overlap with YES button
+            // Current proposed No Button Rect relative to container
+            const noRight = randomX + noBtn.offsetWidth;
+            const noBottom = randomY + noBtn.offsetHeight;
+            const buffer = 10;
+
+            // YES button rect relative to container
+            const yesRight = yesLeft + yesRect.width;
+            const yesBottom = yesTop + yesRect.height;
+
+            const overlap = !(
+                noRight < yesLeft - buffer ||
+                randomX > yesRight + buffer ||
+                noBottom < yesTop - buffer ||
+                randomY > yesBottom + buffer
+            );
+
+            if (!overlap) {
+                valid = true;
+            }
+            attempts++;
+        }
 
         noBtn.style.left = `${randomX}px`;
         noBtn.style.top = `${randomY}px`;
 
-        // Increase YES button size
+        // Increase YES button size with limits
         const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-        yesBtn.style.fontSize = `${currentSize + 2}px`;
-        yesBtn.style.padding = `${parseFloat(window.getComputedStyle(yesBtn).paddingTop) + 2}px ${parseFloat(window.getComputedStyle(yesBtn).paddingRight) + 5}px`;
+        if (currentSize < 100) { // Limit max size so it doesn't break layout completely
+            yesBtn.style.fontSize = `${currentSize + 2}px`;
+            yesBtn.style.padding = `${parseFloat(window.getComputedStyle(yesBtn).paddingTop) + 1}px ${parseFloat(window.getComputedStyle(yesBtn).paddingRight) + 2}px`;
+        }
 
         // Show Popup after 5 attempts
         if (noClickCount === 5) {
@@ -100,8 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(tooltip);
         }
         tooltip.innerText = randomTooltip;
-        tooltip.style.left = `${randomX}px`;
-        tooltip.style.top = `${randomY - 30}px`;
+
+        // Tooltip follows the button
+        tooltip.style.left = `${containerRect.left + randomX}px`;
+        tooltip.style.top = `${containerRect.top + randomY - 35}px`;
         tooltip.style.opacity = '1';
 
         setTimeout(() => {
@@ -113,40 +156,56 @@ document.addEventListener('DOMContentLoaded', () => {
     noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); moveNoBtn(); }); // For mobile
     noBtn.addEventListener('click', (e) => { e.preventDefault(); moveNoBtn(); });
 
+    const typeWriter = (elementId, text, speed = 50, callback) => {
+        const element = document.getElementById(elementId);
+        element.innerHTML = "";
+        let i = 0;
+
+        function type() {
+            if (i < text.length) {
+                element.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
+            } else {
+                if (callback) callback();
+            }
+        }
+        type();
+    };
+
     // "YES" Button Logic
     yesBtn.addEventListener('click', () => {
-        // Confetti Explosion
+
+        // Heart Confetti Explosion
+        const defaults = {
+            spread: 360,
+            ticks: 100,
+            gravity: 0,
+            decay: 0.94,
+            startVelocity: 30,
+            shapes: ['heart'],
+            colors: ['#FFC0CB', '#FF69B4', '#FF1493', '#C71585']
+        };
+
         confetti({
-            particleCount: 150,
-            spread: 70,
-            origin: { y: 0.6 },
-            colors: ['#ff3366', '#ff85a2', '#ffffff']
+            ...defaults,
+            particleCount: 50,
+            scalar: 2
         });
 
-        // More confetti from sides
-        const duration = 3000;
-        const end = Date.now() + duration;
+        confetti({
+            ...defaults,
+            particleCount: 25,
+            scalar: 3,
+            shapes: ['circle']
+        });
 
-        (function frame() {
-            confetti({
-                particleCount: 5,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0 },
-                colors: ['#ff3366', '#ff85a2']
-            });
-            confetti({
-                particleCount: 5,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1 },
-                colors: ['#ff3366', '#ff85a2']
-            });
-
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        }());
+        confetti({
+            ...defaults,
+            particleCount: 25,
+            scalar: 4,
+            shapes: ['circle'] // mixing circles for variety
+        });
 
         // Hide Proposal, Show Success
         proposalScreen.classList.remove('active');
@@ -160,23 +219,77 @@ document.addEventListener('DOMContentLoaded', () => {
             // Change background
             document.body.style.background = "linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%)";
 
-            // Second part reveal
+            // Second part reveal with Typing Animation
             setTimeout(() => {
                 loveText1.classList.add('hidden');
-
                 finalMessage.classList.remove('hidden');
-                finalMessage.style.animation = "fadeIn 2s ease";
 
-                // More confetti for final moment
-                confetti({
-                    particleCount: 200,
-                    spread: 100,
-                    origin: { y: 0.6 }
+                // Start Typing Effect Sequence
+                typeWriter('typingText1', "I promise to make you smile every single day.", 50, () => {
+                    typeWriter('typingText2', "You are my Favorite Person. Forever. 💖✨", 50, () => {
+                        // Add glow effect class after typing
+                        document.getElementById('typingText2').classList.add('slow-glow');
+
+                        setTimeout(() => {
+                            typeWriter('typingText3', "Happy Valentine’s Day, My Rashmi 🌹💘", 70, () => {
+                                // Show wish section after typing is done
+                                const wishSection = document.getElementById('wishSection');
+                                if (wishSection) {
+                                    wishSection.style.opacity = '1';
+                                    wishSection.style.animation = 'fadeIn 1s ease forwards';
+                                }
+
+                                // Final Confetti
+                                confetti({
+                                    particleCount: 200,
+                                    spread: 100,
+                                    origin: { y: 0.6 },
+                                    shapes: ['heart'],
+                                    colors: ['#FFC0CB', '#FF69B4', '#FF1493']
+                                });
+                            });
+                        }, 500);
+                    });
                 });
 
-            }, 4000); // 4 seconds delay for reading
+            }, 4000);
 
         }, 500);
     });
+
+    // Wish Button Logic
+    const sendWishBtn = document.getElementById('sendWishBtn');
+    const wishInput = document.getElementById('wishInput');
+    const wishSuccess = document.getElementById('wishSuccess');
+
+    if (sendWishBtn && wishInput && wishSuccess) {
+        sendWishBtn.addEventListener('click', () => {
+            const message = wishInput.value.trim();
+            if (message !== "") {
+                // Construct WhatsApp Link
+                // Using the specific phone number provided: 9608710567
+                const phoneNumber = "919608710567";
+                const encodedMessage = encodeURIComponent(`Hey Ravi! 💖 ${message}`);
+                const waLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                // Open WhatsApp
+                window.open(waLink, '_blank');
+
+                wishSuccess.classList.remove('hidden');
+                wishInput.value = ""; // Clear input
+
+                // Optional: simulate server delay
+                setTimeout(() => {
+                    wishSuccess.style.opacity = '0'; // Fade out eventually
+                    setTimeout(() => {
+                        wishSuccess.classList.add('hidden');
+                        wishSuccess.style.opacity = '1';
+                    }, 500);
+                }, 3000);
+            } else {
+                alert("Write something sweet first! 😜");
+            }
+        });
+    }
 
 });
