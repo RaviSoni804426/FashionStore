@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sarika | A Special Question</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts">
+        <span>❤️</span><span>💖</span><span>🌸</span><span>💕</span><span>🌹</span>
+        <span>✨</span><span>🦋</span><span>🌺</span><span>💘</span><span>💝</span>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="container">
+
+        <!-- Step 1: Greeting -->
+        <div id="step1" class="screen active">
+            <h1 class="main-title">Hey Sarika 🌹</h1>
+            <p class="sub-text">I have something to tell you...</p>
+            <button class="btn next-btn" onclick="nextStep(2)">What is it? 🫣</button>
+        </div>
+
+        <!-- Step 2: Question 1 -->
+        <div id="step2" class="screen hidden">
+            <h2 class="question-title">Do you know what makes my day special? ✨</h2>
+            <div class="image-placeholder">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hveGV4NnZ4OWE5bzZ5OWE5bzZ5OWE5bzZ5OWE5b3JpZ2luYWw/3o7TKoWXm3okO1kgHC/giphy.gif"
+                    alt="Thinking cute bear" class="cute-gif">
+            </div>
+            <button class="btn next-btn" onclick="nextStep(3)">Tell me! 🤔</button>
+        </div>
+
+        <!-- Step 3: Answer to Q1 -->
+        <div id="step3" class="screen hidden">
+            <h2 class="love-text">It's just talking to you. 💖</h2>
+            <p class="sub-text">Your smile is literally the highlight of my week.</p>
+            <button class="btn next-btn" onclick="nextStep(4)">Aw, really? 🙈</button>
+        </div>
+
+        <!-- Step 4: Build Up -->
+        <div id="step4" class="screen hidden">
+            <h2 class="question-title">We have been Best Friends for a while now...</h2>
+            <p class="sub-text">And honestly, life is just better with you.</p>
+            <button class="btn next-btn" onclick="nextStep(5)">So... 👉👈</button>
+        </div>
+
+        <!-- Step 5: The Proposal (Main Event) -->
+        <div id="proposalScreen" class="screen hidden">
+            <h1 class="main-title">Sarika 💖<br>Will You Be My Valentine?</h1>
+            <p class="sub-text">From best friends to something more… maybe this is our moment? 💫</p>
+
+            <div class="buttons-container">
+                <button id="yesBtn" class="btn yes-btn">YES 💖</button>
+                <button id="noBtn" class="btn no-btn">NO 🙈</button>
+            </div>
+
+            <div id="escapePopup" class="popup hidden">You can’t escape love Sarika 😜 Just click Yes already!</div>
+        </div>
+
+        <!-- Step 6: Success Screen -->
+        <div id="successScreen" class="screen hidden">
+            <div class="message-container">
+                <h2 class="love-title">Yayyy!! �❤️</h2>
+                <div class="love-text-1">
+                    <p>Best Decision Ever! 💖</p>
+                    <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy Dance"
+                        class="cute-gif small">
+                    <p class="highlight-text">You just made me the happiest person, Sarika!</p>
+                </div>
+
+                <div id="finalMessage" class="love-text-2 hidden">
+                    <p>I promise to make you smile every single day.</p>
+                    <p class="glow-text">You are my Favorite Person. Forever. 💖✨</p>
+                    <br>
+                    <h3 class="final-wish">Happy Valentine’s Day, My Rashmi 🌹💘</h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
