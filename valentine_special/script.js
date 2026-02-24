@@ -3,22 +3,22 @@ let currentStep = 1;
 const totalSteps = 6; // Includes success screen
 
 function nextStep(stepNumber) {
-    // Hide current step
+   
     const currentScreen = document.querySelector('.screen.active');
     currentScreen.classList.remove('active');
     currentScreen.classList.add('hidden');
 
-    // Show next step with delay
+   
     setTimeout(() => {
         currentScreen.style.display = 'none'; // Ensure it's removed from flow
 
         const nextScreen = document.getElementById(stepNumber === 5 ? 'proposalScreen' : `step${stepNumber}`);
         if (stepNumber === 6) {
-            // Handle success logic separately inside Yes button click
+            
             return;
         }
 
-        // Logic to allow display:flex to work with animation
+        
         nextScreen.classList.remove('hidden');
         nextScreen.classList.add('active');
 
