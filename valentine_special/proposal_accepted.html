@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>She Said YES! 💖💍</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="wish-body">
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts">
+        <span>❤️</span><span>💖</span><span>🌸</span><span>💕</span><span>🌹</span>
+        <span>✨</span><span>🦋</span><span>🌺</span><span>💘</span><span>💝</span>
+        <span>💌</span><span>🧸</span><span>🍫</span><span>🍓</span><span>💃</span>
+    </div>
+
+    <div class="wish-card" style="max-width: 600px; padding: 40px;">
+        <div class="message-container" style="background: none; box-shadow: none; border: none; padding: 0;">
+            <h2 class="wish-title">Yayyy!! ❤️</h2>
+
+            <div class="love-text-1">
+                <p style="font-size: 1.2rem;">Best Decision Ever! 💖</p>
+                <div class="wish-image-container" style="width: 200px; height: 200px; margin: 20px auto;">
+                    <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy Dance"
+                        class="wish-image">
+                </div>
+                <p class="highlight-text" style="color: #e91e63; font-weight: bold; margin-top: 20px;">You just made
+                    me the happiest person, Sarika!</p>
+            </div>
+
+            <div id="finalMessage" class="love-text-2 hidden" style="margin-top: 30px;">
+                <p id="typingText1" style="font-size: 1.2rem; margin-top: 15px; color: #555;"></p>
+                <p id="typingText2" class="glow-text"
+                    style="font-size: 1.2rem; color: #d81b60; font-weight: bold; margin-top: 10px;"></p>
+                <br>
+                <h3 id="typingText3" class="final-wish typing-cursor"
+                    style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: #ff3366;"></h3>
+
+                <!-- Wish Section -->
+                <div id="wishSection" class="wish-container"
+                    style="margin-top: 40px; opacity: 0; transition: opacity 1s;">
+                    <p class="wish-label" style="margin-bottom: 10px; color: #777;">Wish him back? 💌</p>
+                    <div class="input-group" style="display: flex; gap: 10px; justify-content: center;">
+                        <input type="text" id="wishInput" placeholder="Write a sweet message..." class="wish-input"
+                            style="border: 1px solid #ffccd5; padding: 10px; border-radius: 20px; outline: none; width: 70%;">
+                        <button id="sendWishBtn" class="action-btn"
+                            style="margin-top: 0; padding: 10px 20px; border-radius: 20px;">🚀</button>
+                    </div>
+                    <p id="wishSuccess" class="wish-success hidden" style="color: #4caf50; margin-top: 10px;">Message
+                        Sent! ❤️ He will love it.</p>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <a href="index.html" class="back-btn" style="text-decoration: none; border-radius: 50px;">
+                        <i class="fas fa-home"></i> Back to Valentine Week
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial Celebration Confetti
+            const duration = 3000;
+            const end = Date.now() + duration;
+
+            (function frame() {
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0 },
+                    colors: ['#ff3366', '#ffccd5']
+                });
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1 },
+                    colors: ['#ff3366', '#ffccd5']
+                });
+
+                if (Date.now() < end) {
+                    requestAnimationFrame(frame);
+                }
+            }());
+
+            const loveText1 = document.querySelector('.love-text-1');
+            const finalMessage = document.getElementById('finalMessage');
+
+            // TypeWriter Function
+            const typeWriter = (elementId, text, speed = 50, callback) => {
+                const element = document.getElementById(elementId);
+                element.innerHTML = "";
+                let i = 0;
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    } else {
+                        if (callback) callback();
+                    }
+                }
+                type();
+            };
+
+            // Transition to typing text
+            setTimeout(() => {
+                loveText1.style.display = 'none'; // Completely hide first part
+                finalMessage.classList.remove('hidden');
+
+                // Start Typing
+                typeWriter('typingText1', "I promise to make you smile every single day.", 50, () => {
+                    typeWriter('typingText2', "You are my Favorite Person. Forever. 💖✨", 50, () => {
+                        // Glow effect
+                        document.getElementById('typingText2').classList.add('slow-glow');
+
+                        setTimeout(() => {
+                            typeWriter('typingText3', "Happy Valentine’s Day, My Sarika 🌹💘", 70, () => {
+                                // Show wish section
+                                const wishSection = document.getElementById('wishSection');
+                                wishSection.style.opacity = '1';
+
+                                // Final Big Explosion
+                                confetti({
+                                    particleCount: 200,
+                                    spread: 100,
+                                    origin: { y: 0.6 },
+                                    shapes: ['heart'],
+                                    colors: ['#FFC0CB', '#FF69B4', '#FF1493']
+                                });
+                            });
+                        }, 500);
+                    });
+                });
+            }, 3000); // Wait 3 seconds before switching views
+
+            // Wish Button Logic
+            const sendWishBtn = document.getElementById('sendWishBtn');
+            const wishInput = document.getElementById('wishInput');
+            const wishSuccess = document.getElementById('wishSuccess');
+
+            if (sendWishBtn) {
+                sendWishBtn.addEventListener('click', () => {
+                    const message = wishInput.value.trim();
+                    if (message !== "") {
+                        // WhatsApp Link
+                        const phoneNumber = "919608710567";
+                        const encodedMessage = encodeURIComponent(`Hey Ravi! 💖 Yes! ${message}`);
+                        const waLink = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+                        window.open(waLink, '_blank');
+
+                        wishSuccess.classList.remove('hidden');
+                        wishInput.value = "";
+
+                        setTimeout(() => {
+                            wishSuccess.style.opacity = '0';
+                            setTimeout(() => wishSuccess.classList.add('hidden'), 500);
+                        }, 3000);
+                    } else {
+                        alert("Write something sweet first! 😜");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Wish For You 💖</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@1,600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- Icon format -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="wish-body">
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts">
+        <span>❤️</span><span>💖</span><span>🌸</span><span>💕</span><span>🌹</span>
+    </div>
+
+    <!-- Envelope Animation -->
+    <div class="envelope-wrapper" id="envelopeWrapper" onclick="openEnvelope()">
+        <div class="envelope">
+            <div class="envelope-lid" id="envelopeLid"></div>
+            <div class="letter">
+                <p style="font-family: 'Dancing Script'; font-size: 1.5rem; color: #d81b60;">For Sarika 💖</p>
+                <p style="font-size: 0.9rem; color: #777;">(Click to Open)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wish-card" id="wishCard" style="display: none;">
+        <!-- Magic Pin element -->
+        <div class="pin"></div>
+
+        <h1 class="wish-title" id="dayTitle">Happy Valentine Week!</h1>
+
+        <div class="wish-image-container">
+            <img id="dayImage" src="" alt="Special Gift" class="wish-image">
+        </div>
+
+        <div class="wish-message">
+            <div id="dayMessage">Loading your surprise... ✨</div>
+            <span class="wish-quote" id="dayQuote"></span>
+        </div>
+
+        <div class="actions">
+            <button class="action-btn" onclick="celebrate()"><i class="fas fa-heart"></i> Love it!</button>
+            <br>
+            <a href="index.html" class="action-btn back-btn"><i class="fas fa-arrow-left"></i> Back to Calendar</a>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            chocolate: {
+                title: "Happy Chocolate Day! 🍫",
+                image: "https://media.giphy.com/media/l2JdXD1n7v7j5sDOU/giphy.gif",
+                message: "You are sweeter than any chocolate in this world! Life is delicious with you, Sarika. 🍬💖",
+                quote: "\"All you need is love. But a little chocolate now and then doesn't hurt.\""
+            },
+            teddy: {
+                title: "Happy Teddy Day! 🧸",
+                image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3hveGV4NnZ4OWE5bzZ5OWE5bzZ5OWE5bzZ5OWE5b3JpZ2luYWw/3o7TKoWXm3okO1kgHC/giphy.gif",
+                message: "Sending you a big, soft, warm bear hug! You are my cutest teddy bear. 🐻✨",
+                quote: "\"A teddy bear is a timeless gift that brings a smile to the heart.\""
+            },
+            promise: {
+                title: "Happy Promise Day! 🤝",
+                image: "https://media.giphy.com/media/l0HlJDaeqNUDhhaMg/giphy.gif",
+                message: "I promise to annoy you forever, make you laugh, and be there whenever you need me. 💖",
+                quote: "\"Promises are the uniquely human way of ordering the future.\""
+            },
+            hug: {
+                title: "Happy Hug Day! 🤗",
+                image: "https://media.giphy.com/media/3oEdv4hwWTzBhWvaU0/giphy.gif",
+                message: "A hug is the best medicine. Sending you the tightest hug ever! 🫂❤️",
+                quote: "\"A hug is a handshake from the heart.\""
+            },
+            kiss: {
+                title: "Happy Kiss Day! 💋",
+                image: "https://media.giphy.com/media/l4pTfx2qLszoacZRS/giphy.gif",
+                message: "Lots of love and kisses to my favorite person. You make my heart smile! 😘✨",
+                quote: "\"A kiss is a lovely trick designed by nature to stop speech when words become superfluous.\""
+            },
+            valentine: {
+                title: "Happy Valentine's Day! 💝",
+                image: "https://media.giphy.com/media/26FLdmIp6wJr91JJO/giphy.gif",
+                message: "Will you be my Valentine? Actually, you don't have a choice! 😜 Just kidding (not really). Love you! ❤️",
+                quote: "\"I love you not only for what you are, but for what I am when I am with you.\""
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const day = params.get('day');
+
+        if (data[day]) {
+            document.getElementById('dayTitle').textContent = data[day].title;
+            document.getElementById('dayImage').src = data[day].image;
+            document.getElementById('dayMessage').textContent = data[day].message;
+            if (data[day].quote) document.getElementById('dayQuote').textContent = data[day].quote;
+
+            // Auto celebrate removed, handled by envelope
+        } else {
+            document.getElementById('dayTitle').textContent = "Special Day! ✨";
+            document.getElementById('dayMessage').textContent = "Every day is special with you!";
+        }
+
+        function celebrate() {
+            confetti({
+                particleCount: 150,
+                spread: 100,
+                origin: { y: 0.6 },
+                colors: ['#ff3366', '#ffccd5', '#ffffff'],
+                shapes: ['circle', 'heart']
+            });
+
+            // Pulse the card
+            const card = document.getElementById('wishCard');
+            card.style.transform = "scale(1.02)";
+            setTimeout(() => {
+                card.style.transform = "scale(1)";
+            }, 200);
+        }
+        function openEnvelope() {
+            const wrapper = document.getElementById('envelopeWrapper');
+            const card = document.getElementById('wishCard');
+
+            wrapper.classList.add('open');
+            setTimeout(() => {
+                wrapper.style.opacity = '0';
+                setTimeout(() => {
+                    wrapper.style.display = 'none';
+                    card.style.display = 'block';
+                    card.style.opacity = '0';
+                    card.style.animation = 'slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        celebrate(); // Trigger confetti when card opens
+                    }, 50);
+                }, 500);
+            }, 800);
+        }
+    </script>
+</body>
+
+</html>

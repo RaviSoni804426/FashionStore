@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Hug Day | Feel the Moment 🫂</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100dvh;
+            /* Allow scrolling if needed on small screens */
+            overflow-y: auto;
+            overflow-x: hidden;
+            font-family: 'Montserrat', sans-serif;
+            background: #000;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: manipulation;
+        }
+
+        /* --- IMMERSIVE BACKGROUND --- */
+        .bg-layer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Couple Hug Background */
+            background: url('assets/hug_day.jpg') no-repeat center center;
+            background-size: cover;
+            transform-origin: center center;
+            transition: transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 1s ease, opacity 1s;
+            z-index: -2;
+            filter: brightness(0.6);
+            /* Slightly dark initially to read text */
+        }
+
+        /* --- SENSORY OVERLAYS --- */
+
+
+        /* Flash Effect for Kiss */
+        .flash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 50;
+            transition: opacity 0.5s ease-out;
+        }
+
+        /* --- CHARACTERS (Mobile Optimized) --- */
+        .char-container {
+            position: fixed;
+            bottom: 22%;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .char {
+            font-size: min(18vw, 8rem);
+            position: absolute;
+            bottom: 0;
+            transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6));
+        }
+
+        #boy {
+            left: 10%;
+        }
+
+        #girl {
+            right: 10%;
+            transform: scaleX(-1);
+        }
+
+        /* Animation Classes */
+        @keyframes bounceWalk {
+
+            0%,
+            100% {
+                bottom: 0;
+            }
+
+            50% {
+                bottom: 20px;
+            }
+        }
+
+        .step-closer #boy {
+            left: 32%;
+            transform: scale(1.1);
+            animation: bounceWalk 0.6s 2;
+        }
+
+        .step-closer #girl {
+            right: 32%;
+            transform: scale(1.1) scaleX(-1);
+            animation: bounceWalk 0.6s 2;
+        }
+
+        .step-hug #boy {
+            left: 42%;
+            opacity: 0;
+            transform: scale(1.2);
+            transition: left 0.8s ease-out, opacity 0.5s 0.5s;
+        }
+
+        .step-hug #girl {
+            right: 42%;
+            opacity: 0;
+            transform: scale(1.2) scaleX(-1);
+            transition: right 0.8s ease-out, opacity 0.5s 0.5s;
+        }
+
+        .step-hug::after {
+            content: '🫂';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%) scale(0);
+            font-size: min(25vw, 10rem);
+            animation: hugPop 1s ease-out 0.5s forwards;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+        }
+
+        @keyframes hugPop {
+            0% { transform: translateX(-50%) scale(0); opacity: 0; }
+            70% { transform: translateX(-50%) scale(1.3); opacity: 1; }
+            100% { transform: translateX(-50%) scale(1); opacity: 1; }
+        }
+
+        /* --- REAL MOMENT GIFS --- */
+
+
+        /* --- SLIDE TEMPLATES --- */
+        .slide-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 600px;
+            z-index: 100;
+            text-align: center;
+        }
+
+        .slide {
+            display: none;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.8s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .slide p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .next-btn {
+            background: linear-gradient(45deg, #ff4081, #d81b60);
+            border: none;
+            padding: 12px 30px;
+            color: white;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .next-btn:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- UI TEXT (Originally existing) --- */
+        .dialogue-box {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            z-index: 50;
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .pop-text {
+            animation: popText 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popText {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .text-main {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .text-hint {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffd700;
+            opacity: 0.9;
+        }
+
+        /* Header Message */
+        .page-title {
+            position: fixed;
+            top: 5%;
+            width: 100%;
+            text-align: center;
+            z-index: 40;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: #ffeb3b;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+            pointer-events: none;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        .romantic-msg {
+            position: fixed;
+            top: 15%;
+            width: 90%;
+            left: 5%;
+            text-align: center;
+            z-index: 40;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            pointer-events: none;
+            opacity: 0;
+            animation: fadeIn 2s 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Particle */
+        .particle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 30;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-title">Mera Sukoon... ❤️</div>
+    <div class="romantic-msg">"Saari duniya ka shor ek taraf,<br>aur tumhari bahon ki shanti ek taraf..."</div>
+
+    <div class="bg-layer" id="bg"></div>
+
+    <!-- ldke ldki characters -->
+    <div class="char-container" id="charContainer">
+        <div class="char" id="boy">🕺</div>
+        <div class="char" id="girl">💃</div>
+    </div>
+
+    <!-- Intro Slides -->
+    <div class="slide-container" id="slides">
+        <div class="slide active" id="s1">
+            <h2>Hugs...</h2>
+            <p>They are not just arms wrapping around body.<br>They are souls whispering "I am here".</p>
+            <button class="next-btn" onclick="nextSlide(2)">True? ❤️</button>
+        </div>
+        <div class="slide" id="s2">
+            <h2>Medicine</h2>
+            <p>Jabb bhi mood off ho, ya darr lage...<br>Tumhari ek japhi meri saari tension mita deti hai.</p>
+            <button class="next-btn" onclick="nextSlide(3)">Agree? 🫂</button>
+        </div>
+        <div class="slide" id="s3">
+            <h2>My Wish</h2>
+            <p>Bass yahi chahta hu ki...<br>Jab bhi tumhe warmth chahiye ho,<br>Main hamesha waha rahu.</p>
+            <button class="next-btn" onclick="nextSlide(4)">Start The Moment ✨</button>
+        </div>
+        <div class="slide" id="s4">
+            <h2>Promise</h2>
+            <p>Chahe kuch bhi ho jaye...<br>Meri bahein hamesha tumhara ghar rahengi.</p>
+            <button class="next-btn" onclick="startInteract()">Hug Me Now ❤️</button>
+        </div>
+    </div>
+
+
+
+    <script>
+        let step = 0;
+
+        function nextSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.getElementById('s' + n).classList.add('active');
+        }
+
+        function startInteract() {
+            document.getElementById('slides').style.display = 'none';
+
+            const bg = document.getElementById('bg');
+            bg.style.filter = "brightness(1) contrast(1.1)";
+
+            document.querySelector('.page-title').style.opacity = '1';
+            document.querySelector('.romantic-msg').style.opacity = '1';
+
+            // Show ldke ldki - walk toward each other
+            const container = document.getElementById('charContainer');
+            container.style.opacity = '1';
+            container.classList.add('step-closer');
+
+            // Then hug moment
+            setTimeout(() => {
+                container.classList.remove('step-closer');
+                container.classList.add('step-hug');
+            }, 1200);
+
+            confetti({ particleCount: 300, spread: 150, origin: { y: 0.6 }, colors: ['#fff', '#ffd700', '#ff69b4'] });
+            createMagicSparkles();
+
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 6000);
+        }
+
+        const bg = document.getElementById('bg');
+        // Removed GIFs and UI vars
+
+        // Magic Sparkles (Background effect)
+        function createMagicSparkles() {
+            for (let i = 0; i < 40; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.top = Math.random() * 100 + 'vh';
+                const size = Math.random() * 6 + 2;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.background = `radial-gradient(circle, #fff, #ffd700)`;
+                p.style.opacity = Math.random();
+                p.style.boxShadow = `0 0 ${size * 2}px #ffd700`;
+                p.style.animation = `floatUp ${Math.random() * 2 + 2}s ease-out forwards`;
+                document.body.appendChild(p);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes floatUp {to {transform: translateY(-150px) scale(0); opacity: 0; } }`;
+        document.head.appendChild(style);
+
+    </script>
+</body>
+
+</html>

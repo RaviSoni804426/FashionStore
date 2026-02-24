@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? ❤️</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary: #d81b60;
+            --envelope-color: #f8c291;
+            --envelope-shadow: rgba(0, 0, 0, 0.2);
+            --letter-paper: #fff0f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* Romantic Photo Background with Overlay */
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+
+            /* Responsive & Scrollable Fixes */
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 20px;
+            perspective: 1500px;
+        }
+
+        /* Ambient particles */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* --- ENVELOPE STYLES --- */
+        .envelope-wrapper {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            margin: 50px auto;
+        }
+
+        .envelope-wrapper:hover {
+            transform: scale(1.02);
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background: #e55039;
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+            transition: all 1s ease;
+        }
+
+        .flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-top: 110px solid #eb4d4b;
+            transform-origin: top;
+            transition: transform 0.6s 0.5s;
+            z-index: 6;
+        }
+
+        .pocket {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 200px solid #c0392b;
+            z-index: 7;
+            border-radius: 0 0 5px 5px;
+        }
+
+        /* Wax Seal */
+        .seal {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: #f1c40f;
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: 2px solid #d4ac0d;
+            transition: all 0.4s;
+        }
+
+        .seal::after {
+            content: '❤️';
+            font-size: 1.2rem;
+        }
+
+        .instruction {
+            position: absolute;
+            bottom: -50px;
+            width: 100%;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-family: 'Dancing Script';
+            font-size: 1.5rem;
+            animation: bounce 1.5s infinite;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* --- LETTER STYLES --- */
+        .letter {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            width: 270px;
+            height: 180px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 1s ease;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+        }
+
+        /* OPEN STATE ANIMATIONS */
+        .envelope-wrapper.open .envelope {
+            transform: translateY(150px);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Responsive Open Letter (Improved Styles) */
+        .envelope-wrapper.open .letter {
+            opacity: 1;
+            width: 90vw;
+            max-width: 650px;
+            height: auto;
+
+            max-height: 85vh;
+            overflow-y: auto;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: fixed;
+
+            z-index: 100;
+            border-radius: 12px;
+            background: url("https://www.transparenttextures.com/patterns/cream-paper.png"), #fff;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .letter-content {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s 0.8s, transform 1s 0.8s;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .envelope-wrapper.open .letter-content {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            color: #d81b60;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .body-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 35px;
+            font-family: 'Playfair Display', serif;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight {
+            color: #c2185b;
+            font-weight: 700;
+        }
+
+        .yes-btn {
+            background: #d81b60;
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 15px rgba(216, 27, 96, 0.3);
+            transition: all 0.3s;
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(216, 27, 96, 0.5);
+            background: #ad1457;
+        }
+
+        /* Mobile Font Adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+
+            .body-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 25px;
+            }
+
+            .envelope-wrapper.open .letter {
+                width: 92vw;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="particles"></div>
+
+    <div class="envelope-wrapper" id="envelope" onclick="openLetter()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="pocket"></div>
+            <div class="seal"></div>
+        </div>
+        <div class="instruction">Tap to Open</div>
+
+        <!-- The Letter -->
+        <div class="letter">
+            <div class="letter-content">
+                <h1>My Dearest Sarika,</h1>
+
+                <div class="body-text">
+                    <p>It started with friendship, but somewhere in between the laughs, talk and the silence, you became
+                        my
+                        favorite feeling.</p>
+                    <br>
+                    <p>You are my <span class="highlight">Calm</span> in the chaos.</p>
+                    <p>You are my <span class="highlight">Safe Space</span>.</p>
+                    <p>And honestly? Life just makes more sense when you are nearby.</p>
+                    <br>
+                    <p>So today, I have just one question for you...</p>
+                </div>
+
+                <div style="margin: 30px 0;">
+                    <h2 style="font-family: 'Playfair Display'; color: #c2185b; font-size: 2rem;">Will you be my
+                        Valentine?</h2>
+                    <p style="font-size: 0.9rem; opacity: 0.6;">(Forever & Always?)</p>
+                </div>
+
+                <div class="buttons-container"
+                    style="display: flex; justify-content: center; gap: 20px; align-items: center; position: relative;">
+                    <button class="yes-btn" onclick="celebrate(event)">YES, I WILL! ❤️</button>
+                    <button class="no-btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No
+                        😢</button>
+                </div>
+
+                <div style="margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
+                    <p style="font-family: 'Great Vibes'; font-size: 2rem; color: #880e4f;">Forever Yours,</p>
+                    <p style="font-family: 'Indie Flower', cursive; font-size: 1.5rem; color: #333;">Ravi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Overlay -->
+    <div id="final-screen"
+        style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:200; align-items:center; justify-content:center; flex-direction:column; color:white; text-align:center;">
+        <h1 style="color: #ff4081; font-size: 3.5rem; margin-bottom: 20px;">She Said Yes! 💍✨</h1>
+        <p style="font-size: 1.5rem;">Happy Valentine's Day, My Love.</p>
+        <div style="font-size: 5rem; margin-top: 30px;">👩‍❤️‍👨</div>
+        <a href="index.html" style="margin-top: 50px; color: #aaa; text-decoration: none;">Replay Our Journey ↺</a>
+    </div>
+
+    <script>
+        // Background particles
+        const particleContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const p = document.createElement('div');
+            p.style.position = 'absolute';
+            p.style.backgroundColor = Math.random() > 0.5 ? '#ff4081' : '#fff';
+            p.style.width = Math.random() * 4 + 'px';
+            p.style.height = p.style.width;
+            p.style.borderRadius = '50%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.opacity = Math.random() * 0.5 + 0.1;
+            p.style.animation = `float ${Math.random() * 10 + 10}s infinite linear`;
+            particleContainer.appendChild(p);
+        }
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-100vh); } }
+            .no-btn {
+                background: #ccc; color: #555; padding: 10px 30px;
+                border: none; border-radius: 4px; font-size: 1rem;
+                cursor: pointer; font-family: 'Poppins', sans-serif;
+                transition: all 0.2s; position: relative; /* allows moving with left/top in js context if absolute inside rel */
+            }
+        `;
+        document.head.appendChild(style);
+
+        let isOpen = false;
+
+        function openLetter() {
+            if (isOpen) return;
+            isOpen = true;
+
+            const wrapper = document.getElementById('envelope');
+            const flap = document.querySelector('.flap');
+            const seal = document.querySelector('.seal');
+            const instruction = document.querySelector('.instruction');
+
+            // 1. Remove Seal
+            seal.style.transform = 'translate(-50%, -50%) scale(0)';
+            instruction.style.opacity = '0';
+
+            // 2. Open Flap
+            setTimeout(() => {
+                flap.style.transform = 'rotateX(180deg)';
+                flap.style.zIndex = '1';
+            }, 300);
+
+            // 3. Move Letter Out
+            setTimeout(() => {
+                wrapper.classList.add('open');
+            }, 800);
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('noButton');
+            const container = document.querySelector('.buttons-container');
+
+            // Move button around randomly BUT keep it somewhat accessible/visible to tease
+            const x = (Math.random() - 0.5) * 200;
+            const y = (Math.random() - 0.5) * 200;
+
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+            btn.style.position = 'absolute'; // Make it break flow to move freely
+        }
+
+        function celebrate(e) {
+            e.stopPropagation();
+            const duration = 5 * 1000;
+            const animationEnd = Date.now() + duration;
+            const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 300 };
+
+            const interval = setInterval(function () {
+                const timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) return clearInterval(interval);
+                const particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random() * 0.2 + 0.1, y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random() * 0.2 + 0.7, y: Math.random() - 0.2 } }));
+            }, 250);
+
+            setTimeout(() => {
+                document.getElementById('final-screen').style.display = 'flex';
+                confetti({ particleCount: 150, spread: 100, origin: { y: 0.6 }, zIndex: 400 });
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

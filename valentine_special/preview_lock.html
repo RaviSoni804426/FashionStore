@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Season of Us ❤️</title>
+    <title>Locked Preview (Simulation)</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,29 +14,20 @@
     <link rel="stylesheet" href="style.css?v=6.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* [Copying styles from index.html] */
         body {
             margin: 0;
-            min-height: 100vh;
             overflow-x: hidden;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
             font-family: 'Poppins', sans-serif;
             color: #fff;
-            padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
         }
 
-        /* Sunflower/Tulip Background (Restored) */
         .floral-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            /* Beautiful Sunflower/Tulip Aesthetic */
             background-image: url('https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center bottom;
@@ -44,7 +35,6 @@
             filter: brightness(0.8) saturate(1.1);
         }
 
-        /* Warm Golden Overlay */
         .warm-overlay {
             position: fixed;
             top: 0;
@@ -56,7 +46,6 @@
             pointer-events: none;
         }
 
-        /* Hero */
         .hero-container {
             min-height: 80vh;
             display: flex;
@@ -78,12 +67,10 @@
             font-family: 'Playfair Display', serif;
             font-size: 1.6rem;
             color: #FFD700;
-            /* Sunflower Gold */
             margin-top: 10px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
         }
 
-        /* Grid */
         #gallery {
             padding: 40px 20px;
             max-width: 1200px;
@@ -118,7 +105,6 @@
             z-index: 10;
         }
 
-        /* Card Backgrounds - Vibrant Day Themes */
         .card-bg {
             position: absolute;
             top: 0;
@@ -133,16 +119,10 @@
             transform: scale(1.1);
         }
 
-        /* 
-           VIBRANT THEMES 
-        */
-
-        /* Rose Day: Soft Red/Pink Gradient */
         .theme-rose .card-bg {
             background: linear-gradient(135deg, #ff9a9e 0%, #ff5252 100%);
         }
 
-        /* Propose Day: Royal Navy/Gold */
         .theme-propose .card-bg {
             background: linear-gradient(135deg, #141E30 0%, #243B55 100%);
         }
@@ -155,12 +135,10 @@
             color: #FFD700 !important;
         }
 
-        /* Chocolate Day: Rich Brown */
         .theme-choco .card-bg {
             background: linear-gradient(135deg, #3e2723 0%, #5d4037 100%);
         }
 
-        /* Teddy Day: Soft Blue/Pastel */
         .theme-teddy .card-bg {
             background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
         }
@@ -169,12 +147,10 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
-        /* Promise Day: Trust Blue */
         .theme-promise .card-bg {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
-        /* Hug Day: Warm Orange */
         .theme-hug .card-bg {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
         }
@@ -191,16 +167,13 @@
             color: #bf360c !important;
         }
 
-        /* Kiss Day: Deep Wine */
         .theme-kiss .card-bg {
             background: linear-gradient(135deg, #870000 0%, #190a05 100%);
         }
 
-        /* Valentine: Pink/Red Heart */
         .theme-valentine .card-bg {
             background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
         }
-
 
         .card-content {
             position: relative;
@@ -237,7 +210,6 @@
             text-transform: uppercase;
         }
 
-        /* Falling Petals */
         .petals {
             position: fixed;
             top: 0;
@@ -273,7 +245,6 @@
             filter: grayscale(1) opacity(0.7);
             cursor: not-allowed;
             pointer-events: all;
-            /* Allow click for alert */
         }
 
         .memory-card.locked:hover {
@@ -285,69 +256,42 @@
             animation: none;
         }
 
-        /* Locked Overlay Icon */
-        .memory-card.locked::after {
-            content: '\f023';
-            /* FontAwesome Lock Icon */
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-            z-index: 10;
-        }
-
-        /* Responsive Design */
         @media (max-width: 768px) {
-            body { padding: 15px 10px 30px; }
-
-            .hero-container { min-height: 50vh; padding: 20px 0; }
-
             .hero-title {
-                font-size: clamp(1.8rem, 8vw, 2.5rem);
+                font-size: 2.5rem;
                 padding: 0 10px;
             }
 
             .hero-sub {
-                font-size: clamp(1rem, 4vw, 1.2rem);
+                font-size: 1.2rem;
             }
 
             .grid-section {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-                padding: 0 10px;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+                padding: 0 15px;
             }
 
             .memory-card {
-                height: 200px;
-                min-height: 180px;
+                height: 220px;
                 border-radius: 15px;
             }
 
             .card-icon {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .card-title {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
 
             .card-date {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
 
             #gallery {
-                padding: 20px 10px 40px;
+                padding: 20px 10px;
             }
-        }
-
-        @media (max-width: 400px) {
-            .grid-section { grid-template-columns: 1fr; }
-            .memory-card { height: 180px; }
         }
     </style>
 </head>
@@ -360,17 +304,13 @@
 
     <div class="hero-container">
         <div>
-            <h1 class="hero-title">The Season of Us🩷</h1>
-            <p class="hero-sub">Celebrating My Rasmalai</p>
-            <div
-                style="font-size: 2.5rem; margin-top: 20px; animation: bounce 2s infinite; text-shadow: 0 0 20px #FFD700;">
-                🎀</div>
+            <h1 class="hero-title">Preview: All Locked</h1>
+            <p class="hero-sub">(This is how it looks before the dates arrive)</p>
         </div>
     </div>
 
     <div id="gallery">
         <div class="grid-section">
-
             <a href="rose_day.html" class="memory-card theme-rose" data-date="7">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -379,7 +319,6 @@
                     <p class="card-date">7 Feb</p>
                 </div>
             </a>
-
             <a href="propose_day.html" class="memory-card theme-propose" data-date="8">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -388,7 +327,6 @@
                     <p class="card-date">8 Feb</p>
                 </div>
             </a>
-
             <a href="chocolate_day.html" class="memory-card theme-choco" data-date="9">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -397,7 +335,6 @@
                     <p class="card-date">9 Feb</p>
                 </div>
             </a>
-
             <a href="teddy_day.html" class="memory-card theme-teddy" data-date="10">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -406,7 +343,6 @@
                     <p class="card-date">10 Feb</p>
                 </div>
             </a>
-
             <a href="promise_day.html" class="memory-card theme-promise" data-date="11">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -415,7 +351,6 @@
                     <p class="card-date">11 Feb</p>
                 </div>
             </a>
-
             <a href="hug_day.html" class="memory-card theme-hug" data-date="12">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -424,7 +359,6 @@
                     <p class="card-date">12 Feb</p>
                 </div>
             </a>
-
             <a href="kiss_day.html" class="memory-card theme-kiss" data-date="13">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -433,7 +367,6 @@
                     <p class="card-date">13 Feb</p>
                 </div>
             </a>
-
             <a href="valentine_day.html" class="memory-card theme-valentine" data-date="14">
                 <div class="card-bg"></div>
                 <div class="card-content">
@@ -442,7 +375,6 @@
                     <p class="card-date">14 Feb</p>
                 </div>
             </a>
-
         </div>
     </div>
 
@@ -456,7 +388,6 @@
             scale: 1.05
         });
 
-        // Generate Falling Sunshine Petals
         const petalContainer = document.getElementById('petals');
         for (let i = 0; i < 25; i++) {
             const p = document.createElement('div');
@@ -468,49 +399,24 @@
             petalContainer.appendChild(p);
         }
 
-        // Date Locking Logic
         document.addEventListener('DOMContentLoaded', () => {
-            const today = new Date();
-            // Uncomment to test specific date:
-            // const today = new Date('2026-02-08'); 
-
-            const currentMonth = today.getMonth(); // 0 = Jan, 1 = Feb
-            const currentDate = today.getDate();
-
-            // Only enforce lock if it's Feb (Month 1 in JS) or Jan (for testing)
-            // Assuming strict Feb lock:
-            const isFeb = currentMonth === 1;
+            // SIMULATION: Set Date to Feb 1st
+            const currentMonth = 1; // Feb
+            const currentDate = 1;  // All should be locked
 
             const cards = document.querySelectorAll('.memory-card');
 
             cards.forEach(card => {
                 const targetDate = parseInt(card.getAttribute('data-date'));
-
-                // Logic: 
-                // If it's not Feb yet (e.g. Jan), lock everything? Or assume testing and unlock?
-                // Let's assume strict compliance: Lock if it's before the date in Feb.
-                // If it is NOT Feb, we might want to lock or unlock. 
-                // Given the context is Valentine special, let's assume if it's BEFORE Feb, it's locked.
-                // If it's AFTER Feb, it's unlocked.
-
                 let isLocked = false;
 
-                if (currentMonth < 1) { // Jan or earlier
+                if (currentDate < targetDate) {
                     isLocked = true;
-                } else if (currentMonth > 1) { // March or later
-                    isLocked = false;
-                } else { // It is Feb
-                    if (currentDate < targetDate) {
-                        isLocked = true;
-                    }
                 }
 
                 if (isLocked) {
                     card.classList.add('locked');
                     card.setAttribute('title', `Unlocks on Feb ${targetDate}`);
-
-                    // Replace href with javascript:void(0) to prevent right click open in new tab effectively 
-                    // (though we use preventDefault below, changing href is safer visually)
                     const originalHref = card.getAttribute('href');
                     card.removeAttribute('href');
                     card.style.cursor = 'not-allowed';
@@ -518,7 +424,7 @@
                     card.addEventListener('click', (e) => {
                         e.preventDefault();
                         e.stopPropagation();
-                        alert(`Thoda wait, bahut sara love…  💖\nYe surprise Feb ${targetDate} ko open hoga madam! 💖`);
+                        alert(`Sabar ka phal meetha hota hai! 😜\nYe surprise Feb ${targetDate} ko open hoga! 💖`);
                     });
                 }
             });

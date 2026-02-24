@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rose Day Card for Sarika</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f7f3ef;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .card-container {
+            width: 360px;
+            height: 640px;
+            perspective: 2000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1.2s ease;
+            cursor: pointer;
+        }
+
+        .card.open {
+            transform: rotateY(-180deg);
+        }
+
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: #ffffff url('https://i.imgur.com/8QZQZQp.png') no-repeat bottom right;
+            background-size: 120px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .front {
+            text-align: center;
+            background: #fff url('https://i.imgur.com/3QyZKJk.png') no-repeat top left;
+            background-size: 140px;
+        }
+
+        .front h1 {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .front h2 {
+            font-size: 22px;
+            font-weight: normal;
+        }
+
+        .front p {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #555;
+        }
+
+        .inside {
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+            background: #fff url('https://i.imgur.com/5XyR9QO.png') no-repeat top right;
+            background-size: 120px;
+        }
+
+        .signature {
+            margin-top: 20px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .hint {
+            position: absolute;
+            bottom: 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card-container">
+        <div class="card" onclick="this.classList.toggle('open')">
+
+            <!-- FRONT PAGE -->
+            <div class="page front">
+                <h1>Happy Rose Day</h1>
+                <h2>Sarika, My Love ✨</h2>
+                <p>You make love feel soft, safe, and real.</p>
+                <div class="hint">Tap to open 💌</div>
+            </div>
+
+            <!-- INSIDE + LAST PAGE -->
+            <div class="page inside">
+                <p><strong>Sarika,</strong></p>
+                <p>You don’t just calm my chaos —<br>you quietly hold me together.</p>
+                <p>In my overthinking,<br>in my silence,<br>in my heavy days —<br>you understand me without
+                    explanations.</p>
+                <p>What we have feels effortless.<br>No pretending. No forcing.<br>Just us — naturally in sync.</p>
+                <p>When I feel low or lost,<br>you become my strength<br>without even trying.</p>
+                <p>You care about my dreams<br>as if they are yours.</p>
+                <p>You are a rare kind of love —<br>my safe place,<br>my comfort,<br>my constant. 🌹</p>
+                <div class="signature">Always yours,<br><strong>Ravi Kumar</strong></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

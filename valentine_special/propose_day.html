@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Season of Us ❤️ | Propose</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.1">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #590d22;
+            --accent-gold: #FFD700;
+            --text-color: #fff0f3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('assets/propose_bg.jpg');
+            background-size: 100% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: max(20px, env(safe-area-inset-top)) max(15px, env(safe-area-inset-right)) max(40px, env(safe-area-inset-bottom)) max(15px, env(safe-area-inset-left));
+            box-sizing: border-box;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Overlay Pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .cinematic-container {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            padding: 20px 0;
+        }
+
+        /* Particles */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .sparkle {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Glassmorphism Slide Container */
+        /* Glassmorphism Slide Container */
+        /* Transparent Slide Container - Text on Photo */
+        .slide {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            padding: 20px;
+            /* Removed background and border for direct text-on-photo feel */
+            background: transparent;
+            backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+            display: none;
+            opacity: 0;
+            transform: scale(0.9) translateY(30px);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .slide.active {
+            display: block;
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .big-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            color: #ffffff;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            font-weight: 700;
+        }
+
+        .highlight {
+            color: var(--accent-gold);
+            font-style: italic;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            bottom: 2px;
+            left: 0;
+            background: var(--accent-gold);
+            transform: scaleX(0);
+            transition: transform 0.5s ease-in-out;
+            transform-origin: right;
+        }
+
+        .slide.active .highlight::after {
+            transform: scaleX(1);
+            transform-origin: left;
+            transition-delay: 0.5s;
+        }
+
+        .next-btn {
+            background: linear-gradient(45deg, var(--primary-color), #c9184a);
+            border: none;
+            padding: 16px 45px;
+            color: white;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .next-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .next-btn:hover::before {
+            left: 100%;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 77, 109, 0.6);
+        }
+
+        /* Wish Input */
+        .wish-input-container {
+            width: 100%;
+        }
+
+        .crown-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to bottom, #FFD700, #FDB931);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+            animation: floatCrown 3s ease-in-out infinite;
+        }
+
+        @keyframes floatCrown {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        input {
+            width: 100%;
+            padding: 18px;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: rgba(0, 0, 0, 0.3);
+            /* Darker transparent for readability on photo */
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            /* body { background-position: 70% center !important; } */
+
+            .cinematic-container {
+                padding: 15px 0 30px;
+            }
+
+            .big-text {
+                font-size: clamp(1.4rem, 5vw, 2rem);
+                line-height: 1.4;
+            }
+
+            .slide {
+                padding: 25px 15px;
+                width: 100%;
+            }
+
+            .next-btn {
+                padding: 14px 35px;
+                font-size: 1rem;
+            }
+
+            input {
+                padding: 14px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .big-text {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="particles"></div>
+
+    <div class="cinematic-container">
+
+        <!-- Slide 1: Entry -->
+        <div class="slide active" id="s1">
+            <h1 class="big-text">Sarika...<br>Can I steal 60 seconds of your attention?</h1>
+            <button class="next-btn" onclick="nextSlide(2)">Yes <i class="fas fa-arrow-right"></i></button>
+        </div>
+
+        <!-- Slide 2: Memory -->
+        <div class="slide" id="s2">
+            <h1 class="big-text">Aapka intelligence, kindness.<br>Aapka hardworking && helping nature.<br>Aapka <span
+                    class="highlight">Queen, Sherni
+                    energy.</span></h1>
+            <p style="text-transform: uppercase; letter-spacing: 2px; opacity: 0.7;">This inspires me daily.</p>
+            <button class="next-btn" onclick="nextSlide(3)">More <i class="fas fa-heart"></i></button>
+        </div>
+
+        <!-- Slide 3: Emotional Pause -->
+        <div class="slide" id="s3">
+            <h1 class="big-text">Madam...<br>This is not just a proposal.<br>This is me choosing you.<br><span
+                    class="highlight">With respect.</span></h1>
+            <button class="next-btn" onclick="nextSlide(4)">Ready?</button>
+        </div>
+
+        <!-- Slide 4: Proposal -->
+        <!-- Slide 4: Proposal -->
+        <div class="slide" id="s4">
+            <h1 class="big-text" style="font-size: 3.5rem;">So Sarika...<br>Will you be mine?</h1>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                <button class="next-btn"
+                    style="background: var(--accent-gold); color: #590d22; box-shadow: 0 0 30px rgba(255, 215, 0, 0.4); width: 80%; font-weight: 800;"
+                    onclick="nextSlide(5)">Obviously Yes Ravi ❤️</button>
+
+                <button id="noBtn" class="next-btn"
+                    style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.6); font-size: 0.9rem; padding: 10px 30px; width: auto; box-shadow: none;"
+                    onmouseover="moveNoBtn()" onclick="moveNoBtn()">No 😌</button>
+            </div>
+        </div>
+
+        <!-- Slide 5: Wish & Connect -->
+        <div class="slide" id="s5">
+            <div class="wish-input-container">
+                <i class="fas fa-crown crown-icon"></i>
+                <h2
+                    style="font-family: 'Playfair Display', serif; margin-bottom: 15px; font-size: 2.5rem; color: var(--accent-gold); text-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+                    Officially my Queen 👑</h2>
+                <p style="opacity: 0.9; font-size: 1.2rem; margin-bottom: 10px;">"Make a wish, Madam..."</p>
+                <input type="text" id="wishInput" placeholder="Type your wish here..." autofocus>
+
+                <button class="next-btn" onclick="sendWish()">Send to Ravi 💌</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Create Particles (Petals)
+        const container = document.getElementById('particles');
+        const colors = ['#ff4d6d', '#ffb3c1', '#ffffff', '#ffd700'];
+
+        for (let i = 0; i < 40; i++) {
+            const el = document.createElement('div');
+            el.className = 'sparkle';
+            // Randomize starting position (top of screen mostly)
+            el.style.left = Math.random() * 100 + '%';
+            el.style.top = (Math.random() * -20) + '%'; // Start above screen
+
+            // Randomize size
+            el.style.width = Math.random() * 6 + 4 + 'px';
+            el.style.height = el.style.width;
+
+            // Randomize color/opacity
+            el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            el.style.boxShadow = `0 0 10px ${el.style.backgroundColor}`;
+
+            // Randomize animation
+            el.style.animationDuration = Math.random() * 5 + 5 + 's'; // Slower fall
+            el.style.animationDelay = Math.random() * 5 + 's';
+
+            container.appendChild(el);
+        }
+
+        function nextSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+
+            setTimeout(() => {
+                document.getElementById('s' + n).classList.add('active');
+
+                if (n === 5) {
+                    confetti({
+                        particleCount: 300,
+                        spread: 180,
+                        origin: { y: 0.6 },
+                        colors: ['#E6C86E', '#FFFFFF', '#D4AF37']
+                    });
+                }
+            }, 300);
+        }
+
+        // Playful No Button
+        function moveNoBtn() {
+            const btn = document.getElementById('noBtn');
+            const x = (Math.random() - 0.5) * 200;
+            const y = (Math.random() - 0.5) * 200;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+        }
+
+        function rejectProposal() {
+            const btn = document.getElementById('noBtn');
+            btn.innerText = "Option not available Madam 😌";
+            btn.style.color = "#E6C86E";
+            btn.style.borderColor = "transparent";
+            btn.style.cursor = "default";
+            btn.onmouseover = null;
+        }
+
+        function sendWish() {
+            const wish = document.getElementById('wishInput').value;
+            if (!wish) {
+                alert("Madam, kuch toh wish mango! 😌");
+                return;
+            }
+
+            // WhatsApp Link
+            const phone = "919608710567";
+            const text = `Hi Ravi ❤️, I accepted your proposal! And here is my priority wish: "${wish}" ✨`;
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+
+            window.location.href = url;
+
+            // Final Confetti
+            confetti({ particleCount: 100, origin: { y: 0.8 } });
+        }
+    </script>
+</body>
+
+</html>
