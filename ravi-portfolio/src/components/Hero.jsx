@@ -54,7 +54,7 @@ const Hero = () => {
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
             <a
-              href="ravi-portfolio/public/raviresume.pdf"
+              href="public/raviresume.pdf"
               target="_blank"
               className="btn-outline cursor-pointer flex items-center gap-2"
               rel="noopener noreferrer"
