@@ -3,54 +3,86 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, ArrowUpRight } from 'lucide-react';
 
 const projects = [
-    {
-        title: "AstroBot",
-        subtitle: "AI-Powered Space & Weather Assistant",
-        desc: "Developed an AI chatbot providing real-time space and weather insights using ISRO MOSDAC data. Implemented RAG with FAISS and web crawling.",
-        stack: ["LLMs", "RAG", "FAISS", "Web AI"],
-        category: "Generative AI",
-        color: "from-purple-500 to-indigo-500"
-    },
-    {
-        title: "Traffic Prediction",
-        subtitle: "PoC using LSTM/RNN",
-        desc: "Designed a proof-of-concept deep learning model to forecast real-time traffic patterns using sequential data for congestion analysis.",
-        stack: ["Deep Learning", "LSTM", "RNN", "Time Series"],
-        category: "Deep Learning",
-        color: "from-blue-500 to-cyan-500"
-    },
-    {
-        title: "Person Presence Analysis",
-        subtitle: "Computer Vision System",
-        desc: "Built a model to detect and count people in video frames. Used for surveillance analytics and attendance systems.",
-        stack: ["Computer Vision", "Video Analytics", "OpenCV"],
-        category: "Computer Vision",
-        color: "from-red-500 to-orange-500"
-    },
-    {
-        title: "Google Play Store Analysis",
-        subtitle: "EDA & Feature Engineering",
-        desc: "Performed extensive data cleaning and exploratory analysis to identify key factors influencing app ratings and installs.",
-        stack: ["Python", "SQL", "EDA", "Visualization"],
-        category: "Data Analysis",
-        color: "from-green-500 to-emerald-500"
-    },
-    {
-        title: "D2C E-commerce Plan",
-        subtitle: "Business Strategy",
-        desc: "Created a complete business strategy and website prototype for an ethnic wear brand using competitor data analysis.",
-        stack: ["Market Analysis", "Strategy", "Web Dev"],
-        category: "Business",
-        color: "from-yellow-500 to-orange-500"
-    },
-    {
-        title: "Spaceship Titanic",
-        subtitle: "Kaggle Competition",
-        desc: "Built and optimized classification models using feature transformation and hyperparameter tuning techniques.",
-        stack: ["Machine Learning", "Classification", "Kaggle"],
-        category: "Machine Learning",
-        color: "from-pink-500 to-rose-500"
-    }
+   {
+    title: "AI Resume Screener",
+    subtitle: "Automated Resume Screening System",
+    desc: "Built an AI-powered system to screen and rank resumes based on job descriptions using NLP and semantic similarity techniques.",
+    stack: ["Python", "NLP", "Machine Learning", "Scikit-learn"],
+    category: "Artificial Intelligence",
+    color: "from-purple-500 to-indigo-500"
+},
+{
+    title: "End to End Chatbot",
+    subtitle: "Full Stack Conversational AI",
+    desc: "Developed a complete chatbot solution with backend APIs, LLM integration, and deployment pipeline.",
+    stack: ["LLMs", "FastAPI", "React", "Deployment"],
+    category: "Generative AI",
+    color: "from-blue-500 to-cyan-500"
+},
+{
+    title: "GenAI Model from Scratch",
+    subtitle: "Custom Generative AI Implementation",
+    desc: "Implemented a foundational Generative AI model from scratch covering embeddings, attention, and transformer concepts.",
+    stack: ["Transformers", "Deep Learning", "PyTorch", "LLMs"],
+    category: "Deep Learning",
+    color: "from-pink-500 to-rose-500"
+},
+{
+    title: "Mutual Fund Analysis",
+    subtitle: "Financial Data Analysis Project",
+    desc: "Analyzed mutual fund datasets to evaluate fund performance, risk metrics, and return trends using statistical techniques.",
+    stack: ["Python", "Pandas", "EDA", "Visualization"],
+    category: "Data Analysis",
+    color: "from-green-500 to-emerald-500"
+},
+{
+    title: "RAG From Scratch",
+    subtitle: "Retrieval-Augmented Generation System",
+    desc: "Built a Retrieval-Augmented Generation pipeline using embeddings, vector databases, and LLM integration.",
+    stack: ["RAG", "FAISS", "LLMs", "Vector DB"],
+    category: "Generative AI",
+    color: "from-indigo-500 to-purple-500"
+},
+{
+    title: "Real Estate Price Prediction",
+    subtitle: "Regression Based ML Model",
+    desc: "Developed a machine learning regression model to predict real estate prices based on location and property features.",
+    stack: ["Machine Learning", "Regression", "Feature Engineering"],
+    category: "Machine Learning",
+    color: "from-yellow-500 to-orange-500"
+},
+{
+    title: "Stock Price Prediction",
+    subtitle: "Time Series Forecasting",
+    desc: "Built a predictive model using time series analysis and LSTM networks to forecast stock price movements.",
+    stack: ["LSTM", "Time Series", "Deep Learning", "Finance"],
+    category: "Deep Learning",
+    color: "from-red-500 to-orange-500"
+},
+{
+    title: "Voice AI Assistant",
+    subtitle: "Speech-Based Intelligent Assistant",
+    desc: "Created a voice-enabled AI assistant with speech recognition, NLP processing, and text-to-speech response system.",
+    stack: ["Speech Recognition", "NLP", "Python", "APIs"],
+    category: "Artificial Intelligence",
+    color: "from-cyan-500 to-blue-500"
+},
+{
+    title: "Walmart Sales Data Analysis",
+    subtitle: "SQL EDA Project",
+    desc: "Performed SQL-based exploratory data analysis on Walmart sales data to uncover revenue trends and business insights.",
+    stack: ["SQL", "Data Cleaning", "EDA", "Business Insights"],
+    category: "Data Analysis",
+    color: "from-emerald-500 to-green-500"
+},
+// {
+//     title: "YouTube Analysis",
+//     subtitle: "Content Performance Analytics",
+//     desc: "Analyzed YouTube channel data to identify engagement patterns, growth metrics, and content optimization strategies.",
+//     stack: ["Python", "SQL", "Visualization", "Analytics"],
+//     category: "Data Analysis",
+//     color: "from-rose-500 to-pink-500"
+// }
 ];
 
 const Projects = () => {
@@ -92,7 +124,7 @@ const Projects = () => {
                                 <div className="flex items-center gap-4 mt-auto">
   {/* View Code */}
   <a
-    href="https://github.com/ravisoni804426"   // 👉 your GitHub
+    href="https://github.com/RaviSoni804426/Projects/tree/main/projects"   // 👉 your GitHub
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center gap-2 text-sm font-bold text-white hover:text-primary transition-colors"
